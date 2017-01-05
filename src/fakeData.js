@@ -3,6 +3,7 @@ const fakeData = {
   name: "Matt Kaufman",
   imgsrc: "",
   cohort: "1608",
+  program: "Front End",
   path: [
     {
       name: "Honeoye Falls, NY",

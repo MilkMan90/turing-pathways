@@ -23,7 +23,11 @@ class Path extends Component {
             sticky={true}
             interactive={true}
           >
-            <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
+            <div>
+              <p>{this.props.info.name}</p>
+              <p>{this.props.info.cohort}</p>
+              <p>{this.props.info.program}</p>
+            </div>
           </Tooltip>
         </Polyline>
       </div>

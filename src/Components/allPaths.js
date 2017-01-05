@@ -9,7 +9,10 @@ class AllPaths extends Component {
   render() {
     return (
       <div className="paths-container">
-        <Path path={this.props.paths}/>
+        <Path
+          path={this.props.paths}
+          info={this.props.info}
+        />
       </div>
     );
   }
