@@ -14,7 +14,7 @@ class StudentPath extends Component {
     });
     return (
       <div className="paths-container">
-        <AllPaths paths={path}/>
+        <AllPaths paths={path} info={this.props.data}/>
         <AllMarkers markers={this.props.data.path}/>
       </div>
     );

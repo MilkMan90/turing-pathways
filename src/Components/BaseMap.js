@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, Marker, Popup, TileLayer, LayersControl, Tooltip } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer, LayersControl, ZoomControl, Tooltip } from 'react-leaflet';
 import StudentPath from './StudentPath.js'
 import data from '../fakeData.js'
 import AllPaths from './allPaths.js'
@@ -17,6 +17,7 @@ class BaseMap extends Component {
       <div className="map-container">
         <Map
           className="map"
+          zoomControl={false}
           center={[39.750809, -104.996810]}
           zoom={4}
           maxBounds={[[85, 100],[-85, -280]]}
@@ -28,6 +29,9 @@ class BaseMap extends Component {
             minZoom = {2}
           />
           <StudentPath data={data}/>
+          <ZoomControl
+            position='bottomright'
+          />
           {/* <LayersControl>
             <LayersControl.Overlay name='Marker with popup'>
              <Marker position={[51.51, -0.06]}>
