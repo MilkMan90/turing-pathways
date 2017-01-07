@@ -2,7 +2,7 @@ header{
   position: fixed;
   width: 100%;
   height: 65px;
-  z-index: 99;
+  z-index: 9999;
   background: #FF93AB -webkit-gradient(linear, left top, right bottom, from(#056bcb), to(#05cb8d)) no-repeat;
 }
 

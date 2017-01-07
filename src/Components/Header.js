@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BaseMap from './BaseMap.js';
 import turingLogo from '../imgs/turing-logowheel.png'
 
 class Header extends Component {
