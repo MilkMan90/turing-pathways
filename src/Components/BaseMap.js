@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Map, Marker, Popup, TileLayer, LayersControl, ZoomControl, Tooltip } from 'react-leaflet';
 import StudentPath from './StudentPath.js'
-import data from '../fakeData.js'
 import AllPaths from './allPaths.js'
 import L from 'leaflet'
 
@@ -28,7 +27,7 @@ class BaseMap extends Component {
             maxZoom = {10}
             minZoom = {2}
           />
-          <StudentPath data={data}/>
+          <StudentPath data={this.props.data}/>
           <ZoomControl
             position='bottomright'
           />

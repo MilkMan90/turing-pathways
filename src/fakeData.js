@@ -1,7 +1,7 @@
 const fakeData = {
   id: 1,
   name: "Matt Kaufman",
-  imgsrc: "",
+  imgsrc: "../imgs/mk.jpg",
   cohort: "1608",
   program: "Front End",
   path: [
