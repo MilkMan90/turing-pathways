@@ -2,7 +2,7 @@
   "name": "turing-pathways",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000",
+  "proxy": "http://localhost:3001",
   "devDependencies": {
     "nodemon": "^1.11.0",
     "react-scripts": "0.8.4"

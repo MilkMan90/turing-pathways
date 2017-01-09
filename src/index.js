@@ -3,7 +3,21 @@ import {render} from 'react-dom';
 import App from './Components/App';
 import './styles/index.css';
 
+import {BrowserRouter, Match, Miss} from 'react-router'
+
+const Root = ()=>{
+  return (
+    <BrowserRouter>
+      <div>
+        <main>
+          <Match pattern="/" component={App} />
+        </main>
+      </div>
+    </BrowserRouter>
+  )
+}
+
 render(
-  <App />,
+  <Root />,
   document.getElementById('root')
 );
