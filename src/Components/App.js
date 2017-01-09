@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import BaseMap from './BaseMap.js';
 import Header from './Header.js';
 import data from '../fakeData.js';
-import NewUserForm from './NewUserForm.js';
+import UserProfile from './UserProfile.js';
 import InfoPane from './InfoPane.js';
 import {Match} from 'react-router';
 import '../styles/index.css';
@@ -34,6 +34,7 @@ class App extends Component {
           data: res
         })
       })
+      console.log(auth.getProfile());
       this.setState({
         user:auth.getProfile()
       })
@@ -53,10 +54,11 @@ class App extends Component {
           logOut={()=>this.logOut()}
           user={this.state.user}
         />
-        <InfoPane auth={auth}/>
+        <InfoPane auth={auth} user={this.state.user}/>
         <BaseMap data={data} />
 
-        <Match pattern="/newuser" component={NewUserForm} />
+        <Match pattern="/profile" component={UserProfile} />
+
       </div>
     );
   }

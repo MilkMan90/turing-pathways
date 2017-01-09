@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-class NewUserForm extends Component {
+class UserProfile extends Component {
   constructor(props){
     super(props)
     this.state =  {
@@ -20,18 +20,14 @@ class NewUserForm extends Component {
     console.log(`Name : ${this.refs.name.value} Program: ${this.refs.program.value}`);
   }
   render() {
-    let pathsForm;
-    for(let i=0; i < this.state.numberOfPaths; i++){
-
-    }
+    // let pathsForm;
+    // for(let i=0; i < this.state.numberOfPaths; i++){
+    //
+    // }
     return (
       <div className="new-user-form">
-        <p>New User</p>
+        {this.props.user ? <h2>{this.props.user.name}</h2> : <h2> No User </h2>}
         <form>
-          <label>
-            Name
-            <input type="text" ref="name"/>
-          </label>
           <label>
             Cohort Number(eg. 1608)
             <input type="text" ref="cohort"/>
@@ -50,4 +46,4 @@ class NewUserForm extends Component {
   }
 }
 
-export default NewUserForm;
+export default UserProfile;

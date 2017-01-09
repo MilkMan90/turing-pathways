@@ -38,6 +38,7 @@ export default class AuthService extends EventEmitter{
     // Saves profile data to local storage
     localStorage.setItem('profile', JSON.stringify(profile))
     // Triggers profile_updated event to update the UI
+    console.log(profile);
     this.emit('profile_updated', profile)
   }
 

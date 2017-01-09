@@ -12,14 +12,18 @@ class Header extends Component {
   render() {
     let userDisplay;
     if(this.props.user){
-      userDisplay = <h2 className="header-username">Welcome {this.props.user.name}</h2>
+      userDisplay =
+        <div className="user-container">
+          <h2 className="header-username">Welcome {this.props.user.name}</h2>
+          <img className="header-user-thumbnail" src={this.props.user.picture}/>
+          <Link to="/editprofile">Edit My Path</Link>
+        </div>
     }
     return (
       <header>
         <img className="logo" src={turingLogo}/>
         <h1 className="title">Pathways</h1>
-        <Link to="/newuser">Add a New Path</Link>
-        <div className="user-container">
+        <div className="user-auth">
           <LoginButton className="log-button"auth={this.props.auth} logOut={this.props.logOut}/>
           {userDisplay}
         </div>

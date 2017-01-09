@@ -26,16 +26,24 @@ h1{
   display: inline-block;
 }
 
-.user-container{
+.user-auth{
   float: right;
+  display: flex;
+  align-items: center;
+}
+
+.user-container{
   display: inline-block;
-  margin-top: 10px;
   margin-right: 50px;
+}
+
+.header-user-thumbnail{
+  width: 50px;
+  height: auto;
 }
 
 .header-username{
   display: inline-block;
-  margin: 5px;
   color: white;
   font-size: 15px;
 }
