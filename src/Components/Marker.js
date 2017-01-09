@@ -9,7 +9,6 @@ import school from '../imgs/school.svg'
 class Mark extends Component {
 
   render() {
-    console.log(this.props.info);
     let icon;
     switch(this.props.info.type){
       case 'work':
