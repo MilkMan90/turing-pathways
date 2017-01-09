@@ -9,8 +9,21 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state =  {
-      studentDisplayID: 0
+      studentDisplayID: 0,
+      userData: data
     };
+  }
+  componentDidMount(){
+    fetch('/users')
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        console.log(res);
+        this.setState({
+          data: res
+        })
+      })
   }
   setStudentID(){
 

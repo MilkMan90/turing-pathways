@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser');
-const cors = require('express-cors');
+// const cors = require('express-cors');
 var mongoose=require('mongoose');
 var fs = require('fs')
 const path = require('path');
@@ -13,7 +13,7 @@ var connectionString = 'mongodb://localhost:27017/' + dbName;
 
 mongoose.connect(connectionString);
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 // app.use('/api')
@@ -24,8 +24,6 @@ app.get('/users', (request, response) => {
   if (err) {
     response.send(err)
   }
-  // res.render(view, locals)
-  // res.render('index.ejs', {dinosaurs: dinos})
   response.send({ users: users });
   })
 });
@@ -37,9 +35,9 @@ app.post('/users', function(req, res) {
     if (err) {
       res.send(err)
     }
-    User.find(function(err, dinos) {
-      // res.render('index.ejs', {dinosaurs: dinos})
-      console.log(dinos);
+    User.find(function(err, users) {
+      console.log(users);
+      res.send('success!')
     })
   })
 })
