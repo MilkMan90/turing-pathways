@@ -14,6 +14,14 @@ class BaseMap extends Component {
     };
   }
   render() {
+    let studentPaths;
+
+    if(this.props.data.users){
+      studentPaths = this.props.data.users.map((user)=>{
+        return <StudentPath data={user}/>
+      })
+    }
+
     return (
       <div className="map-container">
         <Map
@@ -29,7 +37,7 @@ class BaseMap extends Component {
             maxZoom={10}
             minZoom={2}
           />
-          <StudentPath data={this.props.data}/>
+          {studentPaths}
           <ZoomControl
             position='bottomright'
           />

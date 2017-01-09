@@ -17,7 +17,7 @@ class App extends Component {
     this.state =  {
       user: null,
       studentDisplayID: 0,
-      userData: data
+      data: data
     };
     auth.on('profile_updated', (newProfile) => {
       this.setState({user: newProfile})
@@ -34,7 +34,6 @@ class App extends Component {
           data: res
         })
       })
-      console.log(auth.getProfile());
       this.setState({
         user:auth.getProfile()
       })
@@ -55,7 +54,7 @@ class App extends Component {
           user={this.state.user}
         />
         <InfoPane auth={auth} user={this.state.user}/>
-        <BaseMap data={data} />
+        <BaseMap data={this.state.data} />
 
         <Match pattern="/profile" component={UserProfile} />
 
