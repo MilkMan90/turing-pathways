@@ -1,3 +1,5 @@
+/*eslint-disable no-unused-vars*/
+
 import React, { Component } from 'react';
 import { Map, Marker, Popup, TileLayer, LayersControl, Polyline, Tooltip } from 'react-leaflet';
 import Path from './Path.js'

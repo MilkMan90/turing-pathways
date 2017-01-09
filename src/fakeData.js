@@ -1,3 +1,5 @@
+/*eslint-disable no-unused-vars*/
+
 const fakeData = {
   id: 1,
   name: "Matt Kaufman",

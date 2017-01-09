@@ -1,3 +1,5 @@
+/*eslint-disable no-unused-vars*/
+
 import React, { Component } from 'react';
 import AllPaths from './allPaths.js'
 import AllMarkers from './allMarkers.js'

@@ -21,3 +21,21 @@ h1{
   float: left;
   color: azure;
 }
+
+.auth-button{
+  display: inline-block;
+}
+
+.user-container{
+  float: right;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 50px;
+}
+
+.header-username{
+  display: inline-block;
+  margin: 5px;
+  color: white;
+  font-size: 15px;
+}

@@ -1,3 +1,5 @@
+/*eslint-disable no-unused-vars*/
+
 import React, { Component } from 'react';
 
 class NewUserForm extends Component {
@@ -20,7 +22,7 @@ class NewUserForm extends Component {
   render() {
     let pathsForm;
     for(let i=0; i < this.state.numberOfPaths; i++){
-      
+
     }
     return (
       <div className="new-user-form">
