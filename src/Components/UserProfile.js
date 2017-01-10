@@ -3,18 +3,6 @@
 import React, { Component } from 'react';
 
 class UserProfile extends Component {
-  constructor(props){
-    super(props)
-    this.state =  {
-      id: 1,
-      name: "",
-      imgsrc: "",
-      cohort: "",
-      program: "",
-      path: [],
-      numberOfPaths: 1
-    };
-  }
   submitForm(e){
     e.preventDefault()
     console.log(`Name : ${this.refs.name.value} Program: ${this.refs.program.value}`);

@@ -9,14 +9,21 @@ var User = require('./models/user.js')
 var City = require('./models/city.js')
 const MongoClient = require('mongodb').MongoClient
 
-// var dbName = 'studentDB';
-// var connectionString = 'mongodb://localhost:27017/' + dbName;
-// mongoose.connect(connectionString);
+// if(process.env.NODE_ENV === ){
+//
+// }
 
-mongoose.connect(process.env.MONGODB_URI, function (error) {
-    if (error) console.error(error);
-    else console.log('mongo connected');
-});
+
+if(app.settings.env === "development"){
+  var dbName = 'studentDB';
+  var connectionString = 'mongodb://localhost:27017/' + dbName;
+  mongoose.connect(connectionString);
+} else {
+  mongoose.connect(process.env.MONGODB_URI, function (error) {
+      if (error) console.error(error);
+      else console.log('mongo connected');
+  });
+}
 
 // app.use(cors());
 app.use(bodyParser.json())
