@@ -39,7 +39,6 @@ class App extends Component {
         return res.json()
       })
       .then((res)=>{
-        console.log(res);
         this.setState({
           cityData: res
         })
@@ -56,10 +55,28 @@ class App extends Component {
       user: {}
     })
   }
-  setHoverDisplay(user){
+  setPathDisplay(user){
     this.setState({
       userDisplay: user,
-      cityDisplay: null
+      cityDisplay: null,
+      userList: null
+    })
+  }
+  setCityDisplay(cityID){
+    let city=this.state.cityData.cities.find((city)=>{
+      return city.id === cityID
+    })
+    let userArray=this.state.pathData.users.filter((user)=>{
+        let cityMatch = user.path.find((city)=>{
+          return city.id === cityID
+        })
+        return cityMatch !== undefined
+    })
+
+    this.setState({
+      userDisplay: null,
+      cityDisplay: city,
+      userList: userArray
     })
   }
   render() {
@@ -73,11 +90,14 @@ class App extends Component {
           auth={auth}
           user={this.state.user}
           userDisplay={this.state.userDisplay}
+          cityDisplay={this.state.cityDisplay}
+          userCityList={this.state.userList}
         />
         <BaseMap
           paths={this.state.pathData}
           cities={this.state.cityData}
-          handlePathHover={(user)=>this.setHoverDisplay(user)}
+          handlePathHover={(user)=>this.setPathDisplay(user)}
+          handleCityHover={(cityID)=>this.setCityDisplay(cityID)}
         />
 
         <Match pattern="/profile" component={UserProfile} />

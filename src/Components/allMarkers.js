@@ -16,6 +16,7 @@ class AllMarkers extends Component {
             key={i}
             location={[+marker.lat, +marker.lon]}
             info={marker}
+            handleHover={this.props.handleHover}
           />
         )
       })

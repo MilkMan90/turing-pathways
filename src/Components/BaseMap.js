@@ -34,7 +34,10 @@ class BaseMap extends Component {
             paths={this.props.paths.users}
             handleHover={this.props.handlePathHover}
           />
-          <AllMarkers markers={this.props.cities}/>
+          <AllMarkers
+            markers={this.props.cities}
+            handleHover={this.props.handleCityHover}
+            />
           <ZoomControl
             position='bottomright'
           />

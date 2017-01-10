@@ -7,7 +7,9 @@ import work from '../imgs/work.svg'
 import school from '../imgs/school.svg'
 
 class Mark extends Component {
-
+  focusHover(){
+    this.props.handleHover(this.props.info.id);
+  }
   render() {
     let icon;
     switch(this.props.info.type){
@@ -43,11 +45,11 @@ class Mark extends Component {
         });
         break;
     }
-    console.log(this.props.location);
     return (
       <div className="marker-container">
         <Marker
           position={this.props.location}
+          onMouseOver={()=>{this.focusHover()}}
           // icon={icon}
         >
           <Tooltip
