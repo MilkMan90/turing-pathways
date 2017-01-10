@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Map, Marker, Popup, TileLayer, LayersControl, ZoomControl, Tooltip } from 'react-leaflet';
 import StudentPaths from './StudentPaths.js'
+import AllMarkers from './allMarkers.js'
 import L from 'leaflet'
 
 class BaseMap extends Component {
@@ -30,9 +31,13 @@ class BaseMap extends Component {
             minZoom={2}
           />
           <StudentPaths
-            paths={this.props.data.users}
+            paths={this.props.paths.users}
             handleHover={this.props.handlePathHover}
           />
+          <AllMarkers
+            markers={this.props.cities}
+            handleHover={this.props.handleCityHover}
+            />
           <ZoomControl
             position='bottomright'
           />

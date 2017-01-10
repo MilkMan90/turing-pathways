@@ -6,7 +6,16 @@ import UserProfile from './UserProfile.js';
 
 class InfoPane extends Component {
   render() {
-    console.log(this.props.userDisplay);
+    let cityDisplay;
+    let studentCityList;
+    if(this.props.userCityList){
+      console.log(this.props.userCityList);
+      studentCityList = this.props.userCityList.map((user)=>{
+        return <li>
+                <p>{user.name}: {user.cohort} {user.program}</p>
+              </li>
+      })
+    }
     return (
       <div className="info-pane">
         <Match pattern="/editprofile" render={()=> (
@@ -25,7 +34,17 @@ class InfoPane extends Component {
             <img className="infopane-user-img" src={this.props.userDisplay.imgsrc}/>
           </div>
           :
-          <h2> test </h2>
+          <div></div>
+        }
+        {this.props.cityDisplay != null ?
+          <div className="infopane-city-container">
+            <h2>{this.props.cityDisplay.city}, {this.props.cityDisplay.state}</h2>
+            <ul>
+              {studentCityList}
+            </ul>
+          </div>
+          :
+          <div></div>
         }
       </div>
     )

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BaseMap from './BaseMap.js';
 import Header from './Header.js';
-import data from '../fakeData.js';
+import pathData from '../fakeData.js';
 import UserProfile from './UserProfile.js';
 import InfoPane from './InfoPane.js';
 import {Match} from 'react-router';
@@ -17,7 +17,8 @@ class App extends Component {
     this.state =  {
       user: {},
       studentDisplay: null,
-      data: data
+      pathData: pathData,
+      cityData: []
     };
     auth.on('profile_updated', (newProfile) => {
       this.setState({user: newProfile})
@@ -30,7 +31,16 @@ class App extends Component {
       })
       .then((res)=>{
         this.setState({
-          data: res
+          pathData: res
+        })
+      })
+    fetch('/cities')
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        this.setState({
+          cityData: res
         })
       })
       this.setState({
@@ -45,10 +55,28 @@ class App extends Component {
       user: {}
     })
   }
-  setHoverDisplay(user){
+  setPathDisplay(user){
     this.setState({
       userDisplay: user,
-      cityDisplay: null
+      cityDisplay: null,
+      userList: null
+    })
+  }
+  setCityDisplay(cityID){
+    let city=this.state.cityData.cities.find((city)=>{
+      return city.id === cityID
+    })
+    let userArray=this.state.pathData.users.filter((user)=>{
+        let cityMatch = user.path.find((city)=>{
+          return city.id === cityID
+        })
+        return cityMatch !== undefined
+    })
+
+    this.setState({
+      userDisplay: null,
+      cityDisplay: city,
+      userList: userArray
     })
   }
   render() {
@@ -62,10 +90,14 @@ class App extends Component {
           auth={auth}
           user={this.state.user}
           userDisplay={this.state.userDisplay}
+          cityDisplay={this.state.cityDisplay}
+          userCityList={this.state.userList}
         />
         <BaseMap
-          data={this.state.data}
-          handlePathHover={(user)=>this.setHoverDisplay(user)}
+          paths={this.state.pathData}
+          cities={this.state.cityData}
+          handlePathHover={(user)=>this.setPathDisplay(user)}
+          handleCityHover={(cityID)=>this.setCityDisplay(cityID)}
         />
 
         <Match pattern="/profile" component={UserProfile} />
