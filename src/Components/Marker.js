@@ -1,10 +1,10 @@
+/*eslint-disable no-unused-vars*/
 import React, { Component } from 'react';
 import { Marker, Popup, Tooltip } from 'react-leaflet';
 import L from 'leaflet'
 import home from '../imgs/home.svg'
 import work from '../imgs/work.svg'
 import school from '../imgs/school.svg'
-
 
 class Mark extends Component {
 
@@ -47,7 +47,7 @@ class Mark extends Component {
       <div className="marker-container">
         <Marker
           position={this.props.location}
-          icon={icon}
+          // icon={icon}
         >
           <Tooltip
             sticky={true}

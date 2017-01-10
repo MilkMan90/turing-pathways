@@ -1,3 +1,5 @@
+/*eslint-disable import/no-unresolved*/
+
 import React from 'react';
 import {render} from 'react-dom';
 import App from './Components/App';
@@ -11,6 +13,7 @@ const Root = ()=>{
       <div>
         <main>
           <Match pattern="/" component={App} />
+          <Miss component={App}/>
         </main>
       </div>
     </BrowserRouter>

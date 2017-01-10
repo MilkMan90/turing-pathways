@@ -2,18 +2,26 @@ import React, { Component } from 'react';
 import BaseMap from './BaseMap.js';
 import Header from './Header.js';
 import data from '../fakeData.js';
-import NewUserForm from './NewUserForm.js';
+import UserProfile from './UserProfile.js';
 import InfoPane from './InfoPane.js';
-import {Match, Link} from 'react-router';
+import {Match} from 'react-router';
 import '../styles/index.css';
+
+import AuthService from '../utils/AuthService.js'
+
+const auth = new AuthService('3OrpSpUDH5zkAEcMNbHsfymMxbgnpERB', 'milkman.auth0.com');
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state =  {
-      studentDisplayID: 0,
-      userData: data
+      user: {},
+      studentDisplay: null,
+      data: data
     };
+    auth.on('profile_updated', (newProfile) => {
+      this.setState({user: newProfile})
+    })
   }
   componentDidMount(){
     fetch('/users')
@@ -21,23 +29,47 @@ class App extends Component {
         return res.json()
       })
       .then((res)=>{
-        console.log(res);
         this.setState({
           data: res
         })
+      })
+      this.setState({
+        user:auth.getProfile()
       })
   }
   setStudentID(){
 
   }
+  logOut(){
+    this.setState({
+      user: {}
+    })
+  }
+  setHoverDisplay(user){
+    this.setState({
+      userDisplay: user,
+      cityDisplay: null
+    })
+  }
   render() {
     return (
       <div className="App">
-        <Header/>
-        {/* <InfoPane/> */}
-        <BaseMap data={data} />
+        <Header auth={auth}
+          logOut={()=>this.logOut()}
+          user={this.state.user}
+        />
+        <InfoPane
+          auth={auth}
+          user={this.state.user}
+          userDisplay={this.state.userDisplay}
+        />
+        <BaseMap
+          data={this.state.data}
+          handlePathHover={(user)=>this.setHoverDisplay(user)}
+        />
 
-        <Match pattern="/newuser" component={NewUserForm} />
+        <Match pattern="/profile" component={UserProfile} />
+
       </div>
     );
   }

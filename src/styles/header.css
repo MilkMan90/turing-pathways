@@ -21,3 +21,43 @@ h1{
   float: left;
   color: azure;
 }
+
+.auth-button-login{
+  display: inline-block;
+  margin: 20px;
+  width: 100px;
+  border: none;
+  background-color: lightGrey;
+  color: black;
+}
+
+.auth-button-logout{
+  display: inline-block;
+  margin: 20px;
+  width: 100px;
+  border: none;
+  background-color: red;
+  color: white;
+}
+
+.user-auth{
+  float: right;
+  display: flex;
+  align-items: center;
+}
+
+.user-container{
+  display: inline-block;
+  margin-right: 50px;
+}
+
+.header-user-thumbnail{
+  width: 50px;
+  height: auto;
+}
+
+.header-username{
+  display: inline-block;
+  color: white;
+  font-size: 15px;
+}

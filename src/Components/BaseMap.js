@@ -1,7 +1,8 @@
+/*eslint-disable no-unused-vars*/
+
 import React, { Component } from 'react';
 import { Map, Marker, Popup, TileLayer, LayersControl, ZoomControl, Tooltip } from 'react-leaflet';
-import StudentPath from './StudentPath.js'
-import AllPaths from './allPaths.js'
+import StudentPaths from './StudentPaths.js'
 import L from 'leaflet'
 
 class BaseMap extends Component {
@@ -12,6 +13,7 @@ class BaseMap extends Component {
     };
   }
   render() {
+
     return (
       <div className="map-container">
         <Map
@@ -24,10 +26,13 @@ class BaseMap extends Component {
           <TileLayer
             url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
             attribution='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-            maxZoom = {10}
-            minZoom = {2}
+            maxZoom={10}
+            minZoom={2}
           />
-          <StudentPath data={this.props.data}/>
+          <StudentPaths
+            paths={this.props.data.users}
+            handleHover={this.props.handlePathHover}
+          />
           <ZoomControl
             position='bottomright'
           />
