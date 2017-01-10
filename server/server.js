@@ -78,12 +78,12 @@ app.put('/users/:userID', function(req,res){
     if (err) {
      res.send(err)
     }
+    console.log(req.body);
     // Update the params sent
     for (prop in req.body) {
-      user[prop] = req.user[prop]
+      user[prop] = req.body[prop]
     }
-
-    // Save the dinosaur
+    // Save the user
     user.save(function(err) {
       if (err) {
         res.send(err)

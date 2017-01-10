@@ -21,7 +21,7 @@ class Header extends Component {
     }
     return (
       <header>
-        <img className="logo" role="presentation" src={turingLogo}/>
+        <Link to="/"><img className="logo" role="presentation" src={turingLogo}/></Link>
         <h1 className="title">Pathways</h1>
         <div className="user-auth">
           <LoginButton className="log-button" auth={this.props.auth} logOut={this.props.logOut}/>

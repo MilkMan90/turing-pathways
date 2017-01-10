@@ -32,24 +32,42 @@ class UserProfile extends Component {
     e.preventDefault()
     //check if updating or adding new record
     console.log(this.state.newRecord);
-    // if(this.state.newRecord){
-    //   this.postNewUser()
-    // } else {
-    //   this.updateExistingUser()
-    // }
+    if(this.state.newRecord){
+      this.postNewUser()
+    } else {
+      this.updateExistingUser()
+    }
   }
   postNewUser(){
 
   }
   updateExistingUser(){
+    console.log(JSON.stringify({
+      cohort: this.state.cohort,
+      program: this.state.program
+    }));
     fetch(`/users/${this.props.user.clientID}`, {
 	      method: 'put',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
 	      body: JSON.stringify({
-          clientID: this.props.user.clientID,
           cohort: this.state.cohort,
           program: this.state.program
         })
-    });
+    })
+    .then((res)=>{
+      return res.json()
+    })
+    .then((res)=>{
+      console.log(res);
+    })
+  }
+  updateState(value, key){
+    this.setState({
+      [key]: value
+    })
   }
   render() {
     // let pathsForm;
@@ -62,11 +80,11 @@ class UserProfile extends Component {
         <form>
           <label>
             Cohort Number(eg. 1608)
-            <input type="text" value={this.state.cohort}/>
+            <input type="text" value={this.state.cohort} onChange={(e)=>this.updateState(e.target.value, "cohort")}/>
           </label>
           <label>
             Program
-            <select value={this.state.program}>
+            <select value={this.state.program} onChange={(e)=>this.updateState(e.target.value, "program")}>
               <option value="frontend">Front End</option>
               <option value="backend">Back End</option>
             </select>
