@@ -5,14 +5,18 @@ var bodyParser = require('body-parser');
 var mongoose=require('mongoose');
 var fs = require('fs')
 const path = require('path');
-var dbName = 'studentDB';
 var User = require('./models/user.js')
 var City = require('./models/city.js')
 const MongoClient = require('mongodb').MongoClient
 
-var connectionString = 'mongodb://localhost:27017/' + dbName;
+// var dbName = 'studentDB';
+// var connectionString = 'mongodb://localhost:27017/' + dbName;
+// mongoose.connect(connectionString);
 
-mongoose.connect(connectionString);
+mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
 
 // app.use(cors());
 app.use(bodyParser.json())
@@ -59,6 +63,8 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
 });
 
-app.listen(3001, function () {
+var port_number = process.env.PORT || 3000
+
+app.listen(port_number, function () {
   console.log('RrrarrrrRrrrr server alive on port 3001')
 })
