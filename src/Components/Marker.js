@@ -47,7 +47,7 @@ class Mark extends Component {
       <div className="marker-container">
         <Marker
           position={this.props.location}
-          icon={icon}
+          // icon={icon}
         >
           <Tooltip
             sticky={true}

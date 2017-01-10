@@ -2,8 +2,7 @@
 
 import React, { Component } from 'react';
 import { Map, Marker, Popup, TileLayer, LayersControl, ZoomControl, Tooltip } from 'react-leaflet';
-import StudentPath from './StudentPath.js'
-import AllPaths from './allPaths.js'
+import StudentPaths from './StudentPaths.js'
 import L from 'leaflet'
 
 class BaseMap extends Component {
@@ -14,13 +13,6 @@ class BaseMap extends Component {
     };
   }
   render() {
-    let studentPaths;
-
-    if(this.props.data.users){
-      studentPaths = this.props.data.users.map((user)=>{
-        return <StudentPath data={user}/>
-      })
-    }
 
     return (
       <div className="map-container">
@@ -37,7 +29,10 @@ class BaseMap extends Component {
             maxZoom={10}
             minZoom={2}
           />
-          {studentPaths}
+          <StudentPaths
+            paths={this.props.data.users}
+            handleHover={this.props.handlePathHover}
+          />
           <ZoomControl
             position='bottomright'
           />

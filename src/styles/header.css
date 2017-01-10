@@ -22,8 +22,22 @@ h1{
   color: azure;
 }
 
-.auth-button{
+.auth-button-login{
   display: inline-block;
+  margin: 20px;
+  width: 100px;
+  border: none;
+  background-color: lightGrey;
+  color: black;
+}
+
+.auth-button-logout{
+  display: inline-block;
+  margin: 20px;
+  width: 100px;
+  border: none;
+  background-color: red;
+  color: white;
 }
 
 .user-auth{

@@ -7,16 +7,18 @@ import L from 'leaflet'
 import filter from 'lodash'
 
 class StudentPath extends Component {
-  constructor(props){
-    super(props)
-  }
+
   render() {
     let path = this.props.data.path.map((item)=>{
       return [item.lat, item.lon]
     });
     return (
       <div className="paths-container">
-        <AllPaths paths={path} info={this.props.data}/>
+        <AllPaths
+          paths={path}
+          info={this.props.data}
+          handleHover={this.props.handleHover}
+        />
         <AllMarkers markers={this.props.data.path}/>
       </div>
     );

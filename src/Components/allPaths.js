@@ -14,6 +14,7 @@ class AllPaths extends Component {
         <Path
           path={this.props.paths}
           info={this.props.info}
+          handleHover={this.props.handleHover}
         />
       </div>
     );

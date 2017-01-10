@@ -1,3 +1,5 @@
+/*eslint-disable no-unused-vars*/
+
 import { EventEmitter } from 'events'
 import Auth0Lock from 'auth0-lock'
 import { BrowserRouter } from 'react-router'

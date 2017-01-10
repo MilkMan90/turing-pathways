@@ -15,8 +15,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state =  {
-      user: null,
-      studentDisplayID: 0,
+      user: {},
+      studentDisplay: null,
       data: data
     };
     auth.on('profile_updated', (newProfile) => {
@@ -29,7 +29,6 @@ class App extends Component {
         return res.json()
       })
       .then((res)=>{
-        console.log(res);
         this.setState({
           data: res
         })
@@ -43,7 +42,13 @@ class App extends Component {
   }
   logOut(){
     this.setState({
-      user: null
+      user: {}
+    })
+  }
+  setHoverDisplay(user){
+    this.setState({
+      userDisplay: user,
+      cityDisplay: null
     })
   }
   render() {
@@ -53,8 +58,15 @@ class App extends Component {
           logOut={()=>this.logOut()}
           user={this.state.user}
         />
-        <InfoPane auth={auth} user={this.state.user}/>
-        <BaseMap data={this.state.data} />
+        <InfoPane
+          auth={auth}
+          user={this.state.user}
+          userDisplay={this.state.userDisplay}
+        />
+        <BaseMap
+          data={this.state.data}
+          handlePathHover={(user)=>this.setHoverDisplay(user)}
+        />
 
         <Match pattern="/profile" component={UserProfile} />
 
