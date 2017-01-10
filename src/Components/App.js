@@ -75,7 +75,8 @@ class App extends Component {
           userDisplay={this.state.userDisplay}
         />
         <BaseMap
-          data={this.state.pathData}
+          paths={this.state.pathData}
+          cities={this.state.cityData}
           handlePathHover={(user)=>this.setHoverDisplay(user)}
         />
 

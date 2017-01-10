@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 import AllPaths from './allPaths.js'
-import AllMarkers from './allMarkers.js'
 import L from 'leaflet'
 import filter from 'lodash'
 
@@ -19,7 +18,6 @@ class StudentPath extends Component {
           info={this.props.data}
           handleHover={this.props.handleHover}
         />
-        <AllMarkers markers={this.props.data.path}/>
       </div>
     );
   }

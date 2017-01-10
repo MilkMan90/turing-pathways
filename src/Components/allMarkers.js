@@ -8,15 +8,18 @@ import filter from 'lodash'
 class AllMarkers extends Component {
 
   render() {
-    let markerArray = this.props.markers.map((marker, i)=>{
-      return (
-        <Mark
-          key={i}
-          location={[marker.lat, marker.lon]}
-          info={marker}
-        />
-      )
-    })
+    let markerArray;
+    if(this.props.markers.hasOwnProperty('cities')){
+      markerArray = this.props.markers.cities.map((marker, i)=>{
+        return (
+          <Mark
+            key={i}
+            location={[+marker.lat, +marker.lon]}
+            info={marker}
+          />
+        )
+      })
+    }
     return (
       <div className="paths-container">
         {markerArray}

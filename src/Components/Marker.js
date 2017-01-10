@@ -43,6 +43,7 @@ class Mark extends Component {
         });
         break;
     }
+    console.log(this.props.location);
     return (
       <div className="marker-container">
         <Marker
@@ -55,8 +56,6 @@ class Mark extends Component {
           >
             <div>
               <h4>{this.props.info.city}</h4>
-              <p>{this.props.info.name}</p>
-              <p>{this.props.info.desc}</p>
             </div>
           </Tooltip>
         </Marker>
