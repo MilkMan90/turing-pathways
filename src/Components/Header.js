@@ -16,7 +16,7 @@ class Header extends Component {
         <div className="user-container">
           <h2 className="header-username">Welcome {this.props.user.name}</h2>
           <img className="header-user-thumbnail" alt={` of ${this.props.user.name}`} src={this.props.user.picture}/>
-          <Link to="/editprofile">Edit My Path</Link>
+          <Link to="/editprofile">My Path</Link>
         </div>
     }
     return (

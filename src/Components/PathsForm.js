@@ -4,33 +4,54 @@ class PathsForm extends Component {
   constructor(props){
     super(props)
     this.state =  {
-      name: "Honeoye Falls, NY",
-      city: "Honeoye Falls, NY",
-      state: "NY",
-      lat: 42.952286,
-      lon: -77.590276,
-      type: "hometown",
-      desc:"Home!"
+      title: '',
+      city: '',
+      state: '',
+      type: '',
+      desc: '',
+      lat: '',
+      lon: ''
     };
+  }
+  updateState(value, key){
+    this.setState({
+      [key]: value
+    })
+  }
+  getPathCoords(e){
+    e.preventDefault()
+    var {city, state} = this.state
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${city}&components=administrative_area:${state}|country:US&key=AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o`)
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        this.setState({
+          lat:res.results[0].geometry.location.lat,
+          lon:res.results[0].geometry.location.lng
+        })
+      })
   }
   render() {
     return (
       <div className='single-path-form'>
+        <h3>{this.props.pathName}</h3>
         <label>
           Location Title
-          <input type="text" ref="path-title"/>
+          <input type="text" value={this.state.title} onChange={(e)=>this.updateState(e.target.value, "title")}/>
         </label>
         <label>
           City
-          <input type="text" ref="path-city"/>
+          <input type="text" value={this.state.city} onChange={(e)=>this.updateState(e.target.value, "city")}/>
         </label>
         <label>
           US State or Country
-          <input type="text" ref="path-state"/>
+          <input type="text" value={this.state.state} onChange={(e)=>this.updateState(e.target.value, "state")}/>
+          <p>{this.state.lat}, {this.state.lon}</p>
         </label>
         <label>
           Type
-          <select ref="type">
+          <select value={this.state.type} onChange={(e)=>this.updateState(e.target.value, "type")}>
             <option value="hometown">Home-Town</option>
             <option value="school">School</option>
             <option value="work">Work</option>
@@ -39,8 +60,9 @@ class PathsForm extends Component {
         </label>
         <label>
           Description
-          <input type="text" ref="path-description"/>
+          <input type="text" value={this.state.desc} onChange={(e)=>this.updateState(e.target.value, "desc")}/>
         </label>
+        <button onClick={(e)=>this.getPathCoords(e)}>Save Path</button>
       </div>
     )
   }

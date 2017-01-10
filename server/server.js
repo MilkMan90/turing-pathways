@@ -40,6 +40,16 @@ app.get('/users', (request, response) => {
   })
 });
 
+app.get('/users/:userID', function(req, res) {
+  console.log(req.params.userID);
+  User.findOne({ clientID: req.params.userID}, function(err, user) {
+    if (err) {
+      res.status(404).send(err)
+    }
+    res.json(user)
+  })
+})
+
 // Get all cities
 app.get('/cities', (request, response) => {
   City.find(function(err, cities) {
@@ -59,6 +69,26 @@ app.post('/users', function(req, res) {
     }
     User.find(function(err, users) {
       res.send('success!')
+    })
+  })
+})
+
+app.put('/users/:userID', function(req,res){
+  User.findOne({ clientID: req.params.userID}, function(err, user) {
+    if (err) {
+     res.send(err)
+    }
+    // Update the params sent
+    for (prop in req.body) {
+      user[prop] = req.user[prop]
+    }
+
+    // Save the dinosaur
+    user.save(function(err) {
+      if (err) {
+        res.send(err)
+      }
+      res.json({ message: 'User Profile updated!' });
     })
   })
 })

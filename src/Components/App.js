@@ -9,19 +9,23 @@ import '../styles/index.css';
 
 import AuthService from '../utils/AuthService.js'
 
+//google geocode api https://maps.googleapis.com/maps/api/geocode/json?address=Warren&components=administrative_area:VT|country:US&key=AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o
+
+const geocoding = "AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o"
+
 const auth = new AuthService('3OrpSpUDH5zkAEcMNbHsfymMxbgnpERB', 'milkman.auth0.com');
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state =  {
-      user: {},
+      user_github: {},
       studentDisplay: null,
       pathData: pathData,
       cityData: []
     };
     auth.on('profile_updated', (newProfile) => {
-      this.setState({user: newProfile})
+      this.setState({user_github: newProfile})
     })
   }
   componentDidMount(){
@@ -44,7 +48,7 @@ class App extends Component {
         })
       })
       this.setState({
-        user:auth.getProfile()
+        user_github:auth.getProfile()
       })
   }
   setStudentID(){
@@ -52,7 +56,7 @@ class App extends Component {
   }
   logOut(){
     this.setState({
-      user: {}
+      user_github: {}
     })
   }
   setPathDisplay(user){
@@ -72,7 +76,6 @@ class App extends Component {
         })
         return cityMatch !== undefined
     })
-
     this.setState({
       userDisplay: null,
       cityDisplay: city,
@@ -84,11 +87,11 @@ class App extends Component {
       <div className="App">
         <Header auth={auth}
           logOut={()=>this.logOut()}
-          user={this.state.user}
+          user={this.state.user_github}
         />
         <InfoPane
           auth={auth}
-          user={this.state.user}
+          user={this.state.user_github}
           userDisplay={this.state.userDisplay}
           cityDisplay={this.state.cityDisplay}
           userCityList={this.state.userList}
