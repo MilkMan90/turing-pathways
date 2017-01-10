@@ -10,6 +10,7 @@
   "dependencies": {
     "auth0-lock": "^10.9.0",
     "express": "^4.14.0",
+    "leaflet": "^1.0.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.1",
     "react-leaflet": "^1.0.3",
