@@ -9,14 +9,14 @@ var User = require('./models/user.js')
 var City = require('./models/city.js')
 const MongoClient = require('mongodb').MongoClient
 
-var dbName = 'studentDB';
-var connectionString = 'mongodb://localhost:27017/' + dbName;
-mongoose.connect(connectionString);
+// var dbName = 'studentDB';
+// var connectionString = 'mongodb://localhost:27017/' + dbName;
+// mongoose.connect(connectionString);
 
-// mongoose.connect(process.env.MONGOLAB_URI, function (error) {
-//     if (error) console.error(error);
-//     else console.log('mongo connected');
-// });
+mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
 
 // app.use(cors());
 app.use(bodyParser.json())
