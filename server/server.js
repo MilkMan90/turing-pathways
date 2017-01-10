@@ -7,6 +7,7 @@ var fs = require('fs')
 const path = require('path');
 var dbName = 'studentDB';
 var User = require('./models/user.js')
+var City = require('./models/city.js')
 const MongoClient = require('mongodb').MongoClient
 
 var connectionString = 'mongodb://localhost:27017/' + dbName;
@@ -25,6 +26,16 @@ app.get('/users', (request, response) => {
     response.send(err)
   }
   response.send({ users: users });
+  })
+});
+
+// Get all cities
+app.get('/cities', (request, response) => {
+  City.find(function(err, cities) {
+  if (err) {
+    response.send(err)
+  }
+  response.send({ cities: cities });
   })
 });
 

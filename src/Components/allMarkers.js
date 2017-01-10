@@ -1,5 +1,4 @@
 /*eslint-disable no-unused-vars*/
-
 import React, { Component } from 'react';
 import Mark from './Marker.js'
 import data from '../fakeData.js'

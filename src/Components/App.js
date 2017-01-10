@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import BaseMap from './BaseMap.js';
 import Header from './Header.js';
-import data from '../fakeData.js';
+import pathData from '../fakeData.js';
 import UserProfile from './UserProfile.js';
 import InfoPane from './InfoPane.js';
 import {Match} from 'react-router';
@@ -17,7 +17,8 @@ class App extends Component {
     this.state =  {
       user: {},
       studentDisplay: null,
-      data: data
+      pathData: pathData,
+      cityData: []
     };
     auth.on('profile_updated', (newProfile) => {
       this.setState({user: newProfile})
@@ -30,7 +31,17 @@ class App extends Component {
       })
       .then((res)=>{
         this.setState({
-          data: res
+          pathData: res
+        })
+      })
+    fetch('/cities')
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        console.log(res);
+        this.setState({
+          cityData: res
         })
       })
       this.setState({
@@ -64,7 +75,7 @@ class App extends Component {
           userDisplay={this.state.userDisplay}
         />
         <BaseMap
-          data={this.state.data}
+          data={this.state.pathData}
           handlePathHover={(user)=>this.setHoverDisplay(user)}
         />
 
