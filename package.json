@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "auth0-lock": "^10.9.0",
+    "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "leaflet": "^1.0.2",
+    "mongoose": "^4.7.6",
     "react": "^15.4.2",
     "react-dom": "^15.4.1",
     "react-leaflet": "^1.0.3",

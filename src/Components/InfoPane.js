@@ -10,8 +10,8 @@ class InfoPane extends Component {
     let studentCityList;
     if(this.props.userCityList){
       console.log(this.props.userCityList);
-      studentCityList = this.props.userCityList.map((user)=>{
-        return <li>
+      studentCityList = this.props.userCityList.map((user, i)=>{
+        return <li key={i}>
                 <p>{user.name}: {user.cohort} {user.program}</p>
               </li>
       })
@@ -22,30 +22,32 @@ class InfoPane extends Component {
             <UserProfile user={this.props.user}/>
           )
         }/>
-        {/* <Match pattern="/" render={()=> (
-
+         <Match pattern="/" exactly render={()=> (
+           <div>
+           {this.props.userDisplay != null ?
+             <div className="infopane-user-container">
+               <h2>{this.props.userDisplay.name}</h2>
+               <p>{this.props.userDisplay.cohort} {this.props.userDisplay.program}</p>
+               <img className="infopane-user-img" src={this.props.userDisplay.imgsrc}/>
+             </div>
+             :
+             <div></div>
+           }
+           {this.props.cityDisplay != null ?
+             <div className="infopane-city-container">
+               <h2>{this.props.cityDisplay.city}, {this.props.cityDisplay.state}</h2>
+               <ul>
+                 {studentCityList}
+               </ul>
+             </div>
+             :
+             <div></div>
+           }
+           </div>
           )
-        }/> */}
+        }/>
 
-        {this.props.userDisplay != null ?
-          <div className="infopane-user-container">
-            <h2>{this.props.userDisplay.name}</h2>
-            <p>{this.props.userDisplay.cohort} {this.props.userDisplay.program}</p>
-            <img className="infopane-user-img" src={this.props.userDisplay.imgsrc}/>
-          </div>
-          :
-          <div></div>
-        }
-        {this.props.cityDisplay != null ?
-          <div className="infopane-city-container">
-            <h2>{this.props.cityDisplay.city}, {this.props.cityDisplay.state}</h2>
-            <ul>
-              {studentCityList}
-            </ul>
-          </div>
-          :
-          <div></div>
-        }
+
       </div>
     )
   }
