@@ -22,7 +22,7 @@ class UserProfile extends Component {
     };
   }
   componentDidMount(){
-    fetch(`/users/${this.props.user.clientID}`)
+    fetch(`/users/${this.props.user.email}`)
       .then((res)=>{
         return res.json()
       })
@@ -55,7 +55,7 @@ class UserProfile extends Component {
           'Content-Type': 'application/json'
         },
 	      body: JSON.stringify({
-          clientID: this.props.user.clientID,
+          email: this.props.user.email,
           name: this.props.user.name,
           cohort: this.state.cohort,
           program: this.state.program,
@@ -71,7 +71,7 @@ class UserProfile extends Component {
     })
   }
   updateExistingUser(){
-    fetch(`/users/${this.props.user.clientID}`, {
+    fetch(`/users/${this.props.user.email}`, {
 	      method: 'put',
         headers: {
           'Accept': 'application/json',
