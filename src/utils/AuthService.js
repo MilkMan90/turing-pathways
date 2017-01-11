@@ -8,6 +8,7 @@ export default class AuthService extends EventEmitter{
   constructor(clientId, domain) {
     // Configure Auth0
     super()
+    console.log(process.env.PRODUCTION);
     if(process.env.PRODUCTION){
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
