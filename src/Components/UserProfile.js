@@ -59,11 +59,12 @@ class UserProfile extends Component {
           name: this.props.user.name,
           cohort: this.state.cohort,
           program: this.state.program,
-          path: this.state.path
+          path: this.state.path.slice(0, this.state.path.length-1)
         })
     })
     .then((res)=>{
-      return res.json()
+      console.log(res);
+      // return res.json()
     })
     .then((res)=>{
 
@@ -79,7 +80,7 @@ class UserProfile extends Component {
 	      body: JSON.stringify({
           cohort: this.state.cohort,
           program: this.state.program,
-          path: this.state.path
+          path: this.state.path.slice(0, this.state.path.length-1)
         })
     })
     .then((res)=>{
@@ -107,12 +108,12 @@ class UserProfile extends Component {
     this.setState({
       path: tempPath
     })
+    this.nextPath();
   }
-  nextPath(e){
-    e.preventDefault();
+  nextPath(){
     let tempPath = this.state.path;
     if(this.state.currentCityIndex === this.state.path.length-1){
-      let tempPath = this.state.path;
+      tempPath = this.state.path;
       tempPath.push({
         id: "",
         city: "",

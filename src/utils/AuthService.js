@@ -8,6 +8,7 @@ export default class AuthService extends EventEmitter{
   constructor(clientId, domain) {
     // Configure Auth0
     super()
+    if(process.env.PRODUCTION){
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
         redirectUrl: 'https://turingpathways.herokuapp.com/',
@@ -15,6 +16,15 @@ export default class AuthService extends EventEmitter{
         allowedConnections: ['github']
       }
     })
+  } else {
+    this.lock = new Auth0Lock(clientId, domain, {
+      auth: {
+        redirectUrl: 'http://localhost:3000',
+        responseType: 'token',
+        allowedConnections: ['github']
+      }
+    })
+  }
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', this._doAuthentication.bind(this))
     // binds login functions to keep this context

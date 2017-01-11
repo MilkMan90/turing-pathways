@@ -62,7 +62,6 @@ class PathsForm extends Component {
     .then((res)=>{
       let newCityID = res;
       this.saveCityToPath(newCityID)
-      this.props.nextPath();
     })
   }
   saveCityToPath(id){
@@ -76,8 +75,6 @@ class PathsForm extends Component {
       lon: this.state.lon
     }
     this.props.saveCityToPath(cityObj);
-    this.props.nextPath();
-
   }
   render() {
     return (
