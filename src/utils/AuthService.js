@@ -16,7 +16,6 @@ export default class AuthService extends EventEmitter{
         allowedConnections: ['github']
       }
     })
-  } 
     // Add callback for lock `authenticated` event
     this.lock.on('authenticated', this._doAuthentication.bind(this))
     // binds login functions to keep this context
