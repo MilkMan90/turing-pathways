@@ -8,9 +8,10 @@ class UserProfile extends Component {
     super(props)
     this.state =  {
       newRecord: true,
-      numberOfPaths: 1,
+      currentCityIndex: 0,
       cohort: "",
       program: "",
+      path: []
     };
   }
   componentDidMount(){
@@ -19,11 +20,13 @@ class UserProfile extends Component {
         return res.json()
       })
       .then((res)=>{
+        console.log(res);
         if(res !== null){
           this.setState({
             newRecord: false,
             cohort: res.cohort,
-            program: res.program
+            program: res.program,
+            path: res.path
           })
         }
       })
@@ -31,7 +34,6 @@ class UserProfile extends Component {
   submitForm(e){
     e.preventDefault()
     //check if updating or adding new record
-    console.log(this.state.newRecord);
     if(this.state.newRecord){
       this.postNewUser()
     } else {
@@ -39,13 +41,27 @@ class UserProfile extends Component {
     }
   }
   postNewUser(){
+    fetch(`/users`, {
+	      method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+	      body: JSON.stringify({
+          clientID: this.props.user.clientID,
+          name: this.props.user.name,
+          cohort: this.state.cohort,
+          program: this.state.program
+        })
+    })
+    .then((res)=>{
+      return res.json()
+    })
+    .then((res)=>{
 
+    })
   }
   updateExistingUser(){
-    console.log(JSON.stringify({
-      cohort: this.state.cohort,
-      program: this.state.program
-    }));
     fetch(`/users/${this.props.user.clientID}`, {
 	      method: 'put',
         headers: {
@@ -54,7 +70,8 @@ class UserProfile extends Component {
         },
 	      body: JSON.stringify({
           cohort: this.state.cohort,
-          program: this.state.program
+          program: this.state.program,
+          path: this.state.path
         })
     })
     .then((res)=>{
@@ -69,11 +86,57 @@ class UserProfile extends Component {
       [key]: value
     })
   }
+  updatePath(value, key){
+    let tempPath = this.state.path;
+    tempPath[this.state.currentCityIndex][key] = value;
+    this.setState({
+      path: tempPath
+    })
+  }
+  saveCityToPath(city){
+    let tempPath = this.state.path;
+    tempPath[this.state.currentCityIndex] = city;
+    this.setState({
+      path: tempPath
+    })
+  }
+  nextPath(e){
+    e.preventDefault();
+    let tempPath = this.state.path;
+    if(this.state.currentCityIndex === this.state.path.length-1){
+      let tempPath = this.state.path;
+      tempPath.push({
+        id: "",
+        city: "",
+        state: "",
+        type: "",
+        desc: ""
+      })
+    }
+    this.setState({
+      currentCityIndex: this.state.currentCityIndex + 1,
+      path: tempPath
+    })
+  }
   render() {
-    // let pathsForm;
-    // for(let i=0; i < this.state.numberOfPaths; i++){
-    //
-    // }
+    let pathsForm;
+    if(this.state.path.length > 0){
+      pathsForm = <PathsForm
+                // currentCity={this.state.path[this.state.currentCityIndex]}
+
+                title={this.state.path[this.state.currentCityIndex].name}
+                city={this.state.path[this.state.currentCityIndex].city}
+                state={this.state.path[this.state.currentCityIndex].state}
+                type={this.state.path[this.state.currentCityIndex].type}
+                desc={this.state.path[this.state.currentCityIndex].desc}
+
+                updatePath={(value, key)=>this.updatePath(value, key)}
+                pathName={"Home Town"}
+                cityList={this.props.cityList}
+                saveCityToPath={(city)=>this.saveCityToPath(city)}
+                nextPath={(e)=>this.nextPath(e)}
+              />
+    }
     return (
       <div className="new-user-form">
         {this.props.user ? <h2>{this.props.user.name}</h2> : <h2> No User </h2>}
@@ -89,10 +152,8 @@ class UserProfile extends Component {
               <option value="backend">Back End</option>
             </select>
           </label>
-          <PathsForm
-            pathName={"Home Town"}
-          />
-          <button onClick={(e)=>this.submitForm(e)}>Submit</button>
+          {pathsForm}
+          <button onClick={(e)=>this.submitForm(e)}>Save Profile</button>
         </form>
       </div>
     )

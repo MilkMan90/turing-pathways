@@ -43,6 +43,7 @@ class App extends Component {
         return res.json()
       })
       .then((res)=>{
+        console.log(res);
         this.setState({
           cityData: res
         })
@@ -91,6 +92,7 @@ class App extends Component {
         />
         <InfoPane
           auth={auth}
+          cityList={this.state.cityData.cities}
           user={this.state.user_github}
           userDisplay={this.state.userDisplay}
           cityDisplay={this.state.cityDisplay}
@@ -103,7 +105,7 @@ class App extends Component {
           handleCityHover={(cityID)=>this.setCityDisplay(cityID)}
         />
 
-        <Match pattern="/profile" component={UserProfile} />
+        {/* <Match pattern="/profile" component={UserProfile} /> */}
 
       </div>
     );

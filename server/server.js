@@ -41,7 +41,6 @@ app.get('/users', (request, response) => {
 });
 
 app.get('/users/:userID', function(req, res) {
-  console.log(req.params.userID);
   User.findOne({ clientID: req.params.userID}, function(err, user) {
     if (err) {
       res.status(404).send(err)
@@ -59,6 +58,15 @@ app.get('/cities', (request, response) => {
   response.send({ cities: cities });
   })
 });
+
+app.get('/cities/:cityID', function(req, res) {
+  User.findOne({ _id: req.params.cityID}, function(err, user) {
+    if (err) {
+      res.status(404).send(err)
+    }
+    res.json(user)
+  })
+})
 
 app.post('/users', function(req, res) {
   var user = new User(req.body);
@@ -78,7 +86,6 @@ app.put('/users/:userID', function(req,res){
     if (err) {
      res.send(err)
     }
-    console.log(req.body);
     // Update the params sent
     for (prop in req.body) {
       user[prop] = req.body[prop]
@@ -89,6 +96,19 @@ app.put('/users/:userID', function(req,res){
         res.send(err)
       }
       res.json({ message: 'User Profile updated!' });
+    })
+  })
+})
+
+app.post('/cities', function(req, res) {
+  var city = new City(req.body);
+  console.log(city);
+  city.save(function(err) {
+    if (err) {
+      res.send(err)
+    }
+    City.find(function(err, cities) {
+      res.send(city._id)
     })
   })
 })
