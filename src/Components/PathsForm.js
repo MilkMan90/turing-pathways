@@ -8,22 +8,6 @@ class PathsForm extends Component {
       lon: ''
     };
   }
-  componentDidMount(){
-    // if(this.props.currentCity){
-    //   this.setState({
-    //     title: this.props.currentCity.title,
-    //     city: this.props.currentCity.city,
-    //     state: this.props.currentCity.state,
-    //     type: this.props.currentCity.type,
-    //     desc: this.props.currentCity.desc,
-    //   });
-    // }
-  }
-  updateState(value, key){
-    this.setState({
-      [key]: value
-    })
-  }
   savePath(e){
     e.preventDefault()
     this.getPathCoords();
@@ -48,7 +32,9 @@ class PathsForm extends Component {
       })
   }
   findCity(city, state){
+    if(this.props.cityList.length === 0) return undefined
     return this.props.cityList.find((onecity)=>{
+      console.log(onecity);
       return onecity.city.toLowerCase() === city.toLowerCase() && onecity.state.toLowerCase() === state.toLowerCase()
     })
   }
@@ -64,8 +50,8 @@ class PathsForm extends Component {
           'Content-Type': 'application/json'
         },
 	      body: JSON.stringify({
-          city: this.state.city,
-          state: this.state.state,
+          city: this.props.city,
+          state: this.props.state,
           lat: this.state.lat,
           lon: this.state.lon
         })
@@ -76,6 +62,7 @@ class PathsForm extends Component {
     .then((res)=>{
       let newCityID = res;
       this.saveCityToPath(newCityID)
+      this.props.nextPath();
     })
   }
   saveCityToPath(id){
@@ -84,9 +71,13 @@ class PathsForm extends Component {
       city: this.props.city,
       state: this.props.state,
       type: this.props.type,
-      desc: this.props.desc
+      desc: this.props.desc,
+      lat: this.state.lat,
+      lon: this.state.lon
     }
     this.props.saveCityToPath(cityObj);
+    this.props.nextPath();
+
   }
   render() {
     return (
@@ -115,7 +106,6 @@ class PathsForm extends Component {
           <input type="text" value={this.props.desc} onChange={(e)=>this.props.updatePath(e.target.value, "desc")}/>
         </label>
         <button onClick={(e)=>this.savePath(e)}>Save City</button>
-        <button onClick={(e)=>this.props.nextPath(e)}>Next City</button>
       </div>
     )
   }

@@ -8,7 +8,7 @@ import school from '../imgs/school.svg'
 
 class Mark extends Component {
   focusHover(){
-    this.props.handleHover(this.props.info.id);
+    this.props.handleHover(this.props.info._id);
   }
   render() {
     let icon;

@@ -11,7 +11,14 @@ class UserProfile extends Component {
       currentCityIndex: 0,
       cohort: "",
       program: "",
-      path: []
+      path: [{id: "",
+              city: "",
+              state: "",
+              type: "",
+              desc: "",
+              lat: '',
+              lon: ''
+            }]
     };
   }
   componentDidMount(){
@@ -51,7 +58,8 @@ class UserProfile extends Component {
           clientID: this.props.user.clientID,
           name: this.props.user.name,
           cohort: this.state.cohort,
-          program: this.state.program
+          program: this.state.program,
+          path: this.state.path
         })
     })
     .then((res)=>{
@@ -119,16 +127,15 @@ class UserProfile extends Component {
     })
   }
   render() {
-    let pathsForm;
-    if(this.state.path.length > 0){
-      pathsForm = <PathsForm
+    console.log(this.state.path);
+    let pathsForm = <PathsForm
                 // currentCity={this.state.path[this.state.currentCityIndex]}
-
-                title={this.state.path[this.state.currentCityIndex].name}
                 city={this.state.path[this.state.currentCityIndex].city}
                 state={this.state.path[this.state.currentCityIndex].state}
                 type={this.state.path[this.state.currentCityIndex].type}
                 desc={this.state.path[this.state.currentCityIndex].desc}
+                lat={this.state.path[this.state.currentCityIndex].lat}
+                lon={this.state.path[this.state.currentCityIndex].lon}
 
                 updatePath={(value, key)=>this.updatePath(value, key)}
                 pathName={"Home Town"}
@@ -136,7 +143,6 @@ class UserProfile extends Component {
                 saveCityToPath={(city)=>this.saveCityToPath(city)}
                 nextPath={(e)=>this.nextPath(e)}
               />
-    }
     return (
       <div className="new-user-form">
         {this.props.user ? <h2>{this.props.user.name}</h2> : <h2> No User </h2>}
