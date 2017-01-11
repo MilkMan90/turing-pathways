@@ -40,6 +40,15 @@ app.get('/users', (request, response) => {
   })
 });
 
+app.get('/users/:userID', function(req, res) {
+  User.findOne({ clientID: req.params.userID}, function(err, user) {
+    if (err) {
+      res.status(404).send(err)
+    }
+    res.json(user)
+  })
+})
+
 // Get all cities
 app.get('/cities', (request, response) => {
   City.find(function(err, cities) {
@@ -50,6 +59,15 @@ app.get('/cities', (request, response) => {
   })
 });
 
+app.get('/cities/:cityID', function(req, res) {
+  User.findOne({ _id: req.params.cityID}, function(err, user) {
+    if (err) {
+      res.status(404).send(err)
+    }
+    res.json(user)
+  })
+})
+
 app.post('/users', function(req, res) {
   var user = new User(req.body);
 
@@ -59,6 +77,38 @@ app.post('/users', function(req, res) {
     }
     User.find(function(err, users) {
       res.send('success!')
+    })
+  })
+})
+
+app.put('/users/:userID', function(req,res){
+  User.findOne({ clientID: req.params.userID}, function(err, user) {
+    if (err) {
+     res.send(err)
+    }
+    // Update the params sent
+    for (prop in req.body) {
+      user[prop] = req.body[prop]
+    }
+    // Save the user
+    user.save(function(err) {
+      if (err) {
+        res.send(err)
+      }
+      res.json({ message: 'User Profile updated!' });
+    })
+  })
+})
+
+app.post('/cities', function(req, res) {
+  var city = new City(req.body);
+  console.log(city);
+  city.save(function(err) {
+    if (err) {
+      res.send(err)
+    }
+    City.find(function(err, cities) {
+      res.send(city._id)
     })
   })
 })

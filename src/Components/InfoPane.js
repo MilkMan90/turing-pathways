@@ -19,7 +19,10 @@ class InfoPane extends Component {
     return (
       <div className="info-pane">
         <Match pattern="/editprofile" render={()=> (
-            <UserProfile user={this.props.user}/>
+            <UserProfile 
+              user={this.props.user}
+              cityList={this.props.cityList}
+            />
           )
         }/>
          <Match pattern="/" exactly render={()=> (
