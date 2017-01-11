@@ -10,7 +10,7 @@ export default class AuthService extends EventEmitter{
     super()
     this.lock = new Auth0Lock(clientId, domain, {
       auth: {
-        redirectUrl: 'http://localhost:3000',
+        redirectUrl: 'https://turingpathways.herokuapp.com/',
         responseType: 'token',
         allowedConnections: ['github']
       }
