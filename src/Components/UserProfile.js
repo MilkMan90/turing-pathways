@@ -14,6 +14,7 @@ class UserProfile extends Component {
       path: [{id: "",
               city: "",
               state: "",
+              country: "US",
               type: "",
               desc: "",
               lat: '',
@@ -120,6 +121,7 @@ class UserProfile extends Component {
         id: "",
         city: "",
         state: "",
+        country: "US",
         type: "",
         desc: ""
       })
@@ -133,6 +135,7 @@ class UserProfile extends Component {
     let pathsForm = <PathsForm
                 city={this.state.path[this.state.currentCityIndex].city}
                 state={this.state.path[this.state.currentCityIndex].state}
+                country={this.state.path[this.state.currentCityIndex].country}
                 type={this.state.path[this.state.currentCityIndex].type}
                 desc={this.state.path[this.state.currentCityIndex].desc}
                 lat={this.state.path[this.state.currentCityIndex].lat}
