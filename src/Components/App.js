@@ -70,7 +70,7 @@ class App extends Component {
   setCityDisplay(cityname){
     console.log(cityname);
     let city=this.state.cityData.cities.find((city)=>{
-      return city.name.toLowerCase() === cityname.toLowerCase()
+      return city.city.toLowerCase() === cityname.toLowerCase()
     })
     console.log(city);
     let userArray=this.state.pathData.users.filter((user)=>{
