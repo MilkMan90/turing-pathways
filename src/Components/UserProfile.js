@@ -22,7 +22,7 @@ class UserProfile extends Component {
     };
   }
   componentDidMount(){
-    fetch(`/users/${this.props.user.clientID}`)
+    fetch(`/users/${this.props.user.email}`)
       .then((res)=>{
         return res.json()
       })
@@ -55,8 +55,9 @@ class UserProfile extends Component {
           'Content-Type': 'application/json'
         },
 	      body: JSON.stringify({
-          clientID: this.props.user.clientID,
+          email: this.props.user.email,
           name: this.props.user.name,
+          imgsrc: this.props.user.picture,
           cohort: this.state.cohort,
           program: this.state.program,
           path: this.state.path.slice(0, this.state.path.length-1)
@@ -67,11 +68,11 @@ class UserProfile extends Component {
       // return res.json()
     })
     .then((res)=>{
-
+      this.props.hitAPI();
     })
   }
   updateExistingUser(){
-    fetch(`/users/${this.props.user.clientID}`, {
+    fetch(`/users/${this.props.user.email}`, {
 	      method: 'put',
         headers: {
           'Accept': 'application/json',
@@ -88,6 +89,7 @@ class UserProfile extends Component {
     })
     .then((res)=>{
       console.log(res);
+      this.props.hitAPI();
     })
   }
   updateState(value, key){
@@ -128,9 +130,7 @@ class UserProfile extends Component {
     })
   }
   render() {
-    console.log(this.state.path);
     let pathsForm = <PathsForm
-                // currentCity={this.state.path[this.state.currentCityIndex]}
                 city={this.state.path[this.state.currentCityIndex].city}
                 state={this.state.path[this.state.currentCityIndex].state}
                 type={this.state.path[this.state.currentCityIndex].type}
@@ -138,15 +138,16 @@ class UserProfile extends Component {
                 lat={this.state.path[this.state.currentCityIndex].lat}
                 lon={this.state.path[this.state.currentCityIndex].lon}
 
+                hitAPI={this.props.hitAPI}
                 updatePath={(value, key)=>this.updatePath(value, key)}
-                pathName={"Home Town"}
+                pathNumber={this.state.currentCityIndex}
                 cityList={this.props.cityList}
                 saveCityToPath={(city)=>this.saveCityToPath(city)}
                 nextPath={(e)=>this.nextPath(e)}
               />
     return (
       <div className="new-user-form">
-        {this.props.user ? <h2>{this.props.user.name}</h2> : <h2> No User </h2>}
+        {this.props.user ? <h2 className="user-form-name">{this.props.user.name}</h2> : <h2> No User </h2>}
         <form>
           <label>
             Cohort Number(eg. 1608)
@@ -160,7 +161,10 @@ class UserProfile extends Component {
             </select>
           </label>
           {pathsForm}
-          <button onClick={(e)=>this.submitForm(e)}>Save Profile</button>
+          <button
+            className="save-profile-button"
+            onClick={(e)=>this.submitForm(e)}
+          >Save Profile</button>
         </form>
       </div>
     )

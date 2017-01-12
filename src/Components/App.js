@@ -9,8 +9,6 @@ import '../styles/index.css';
 
 import AuthService from '../utils/AuthService.js'
 
-//google geocode api https://maps.googleapis.com/maps/api/geocode/json?address=Warren&components=administrative_area:VT|country:US&key=AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o
-
 const geocoding = "AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o"
 
 const auth = new AuthService('3OrpSpUDH5zkAEcMNbHsfymMxbgnpERB', 'milkman.auth0.com');
@@ -52,6 +50,27 @@ class App extends Component {
         user_github:auth.getProfile()
       })
   }
+  hitAPI(){
+    fetch('/users')
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        this.setState({
+          pathData: res
+        })
+      })
+    fetch('/cities')
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        console.log(res);
+        this.setState({
+          cityData: res
+        })
+      })
+  }
   setStudentID(){
 
   }
@@ -67,15 +86,13 @@ class App extends Component {
       userList: null
     })
   }
-  setCityDisplay(cityID){
-    console.log(cityID);
+  setCityDisplay(cityname){
     let city=this.state.cityData.cities.find((city)=>{
-      console.log(city);
-      return city._id === cityID
+      return city.city.toLowerCase() === cityname.toLowerCase()
     })
     let userArray=this.state.pathData.users.filter((user)=>{
         let cityMatch = user.path.find((city)=>{
-          return city.id === cityID
+          return city.city.toLowerCase() === cityname.toLowerCase()
         })
         return cityMatch !== undefined
     })
@@ -99,6 +116,7 @@ class App extends Component {
           userDisplay={this.state.userDisplay}
           cityDisplay={this.state.cityDisplay}
           userCityList={this.state.userList}
+          hitAPI={()=>{this.hitAPI()}}
         />
         <BaseMap
           paths={this.state.pathData}

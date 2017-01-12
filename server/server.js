@@ -40,8 +40,8 @@ app.get('/users', (request, response) => {
   })
 });
 
-app.get('/users/:userID', function(req, res) {
-  User.findOne({ clientID: req.params.userID}, function(err, user) {
+app.get('/users/:email', function(req, res) {
+  User.findOne({ email: req.params.email}, function(err, user) {
     if (err) {
       res.status(404).send(err)
     }
@@ -81,8 +81,8 @@ app.post('/users', function(req, res) {
   })
 })
 
-app.put('/users/:userID', function(req,res){
-  User.findOne({ clientID: req.params.userID}, function(err, user) {
+app.put('/users/:email', function(req,res){
+  User.findOne({ email: req.params.email}, function(err, user) {
     if (err) {
      res.send(err)
     }

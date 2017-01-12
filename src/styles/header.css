@@ -24,6 +24,7 @@ h1{
 
 .auth-button-login{
   display: inline-block;
+  font-size: 12px;
   margin: 20px;
   width: 100px;
   border: none;
@@ -33,31 +34,61 @@ h1{
 
 .auth-button-logout{
   display: inline-block;
-  margin: 20px;
+  font-size: 14px;
+  margin: 20px 10px 20px 10px;
   width: 100px;
+  height: 27.81px;
   border: none;
-  background-color: red;
+  background-color: #e74c3c;
+  border-radius: 2px;
+  border: 1px solid;
   color: white;
+}
+
+.auth-button-logout:hover{
+  background-color: #c0392b;
+  cursor: pointer;
 }
 
 .user-auth{
   float: right;
   display: flex;
-  align-items: center;
 }
 
 .user-container{
-  display: inline-block;
-  margin-right: 50px;
+  display: flex;
+  height: 65px;
+  align-items: center;
+  /*display: inline-block;*/
 }
 
 .header-user-thumbnail{
   width: 50px;
-  height: auto;
+  margin: 5px;
+}
+
+.my-path-button{
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #e67e22;
+  padding: 5px 3px 2px;
+  margin-left: 5px;
+  width: 100px;
+  height: 20px;
+  border-radius: 2px;
+  border: 1px solid;
+  color: white;
+}
+
+.my-path-button:hover{
+  background-color:#d35400;
+  cursor: pointer;
 }
 
 .header-username{
   display: inline-block;
   color: white;
   font-size: 15px;
+  margin-right: 5px;
 }

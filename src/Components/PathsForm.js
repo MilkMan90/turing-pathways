@@ -62,6 +62,7 @@ class PathsForm extends Component {
     .then((res)=>{
       let newCityID = res;
       this.saveCityToPath(newCityID)
+      this.props.hitAPI()
     })
   }
   saveCityToPath(id){
@@ -77,17 +78,28 @@ class PathsForm extends Component {
     this.props.saveCityToPath(cityObj);
   }
   render() {
+    let pathTitle;
+    switch(this.props.pathNumber){
+      case 0:
+        pathTitle="Hometown"
+        break;
+      case 1:
+        pathTitle="School or Work"
+        break;
+      default:
+        pathTitle="School or Work"
+        break;
+    }
     return (
       <div className='single-path-form'>
-        <h3>{this.props.pathName}</h3>
+        <h3 className="path-name">City {this.props.pathNumber}: {pathTitle}</h3>
         <label>
           City
           <input type="text" value={this.props.city} onChange={(e)=>this.props.updatePath(e.target.value, "city")}/>
         </label>
         <label>
-          US State or Country
+          US State Code (ie: "NY" or "CO")
           <input type="text" value={this.props.state} onChange={(e)=>this.props.updatePath(e.target.value, "state")}/>
-          <p>{this.state.lat}, {this.state.lon}</p>
         </label>
         <label>
           Type
@@ -102,7 +114,10 @@ class PathsForm extends Component {
           Description
           <input type="text" value={this.props.desc} onChange={(e)=>this.props.updatePath(e.target.value, "desc")}/>
         </label>
-        <button onClick={(e)=>this.savePath(e)}>Save City</button>
+        <button
+          onClick={(e)=>this.savePath(e)}
+          className="save-city-button"
+        >Add City</button>
       </div>
     )
   }
