@@ -128,9 +128,7 @@ class UserProfile extends Component {
     })
   }
   render() {
-    console.log(this.state.path);
     let pathsForm = <PathsForm
-                // currentCity={this.state.path[this.state.currentCityIndex]}
                 city={this.state.path[this.state.currentCityIndex].city}
                 state={this.state.path[this.state.currentCityIndex].state}
                 type={this.state.path[this.state.currentCityIndex].type}
@@ -146,7 +144,7 @@ class UserProfile extends Component {
               />
     return (
       <div className="new-user-form">
-        {this.props.user ? <h2>{this.props.user.name}</h2> : <h2> No User </h2>}
+        {this.props.user ? <h2 className="user-form-name">{this.props.user.name}</h2> : <h2> No User </h2>}
         <form>
           <label>
             Cohort Number(eg. 1608)
@@ -160,7 +158,10 @@ class UserProfile extends Component {
             </select>
           </label>
           {pathsForm}
-          <button onClick={(e)=>this.submitForm(e)}>Save Profile</button>
+          <button
+            className="save-profile-button"
+            onClick={(e)=>this.submitForm(e)}
+          >Save Profile</button>
         </form>
       </div>
     )

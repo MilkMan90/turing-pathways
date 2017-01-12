@@ -1,3 +1,5 @@
+@import './pathForm.css';
+
 .info-pane{
   position: fixed;
   z-index: 999;
@@ -6,13 +8,21 @@
   padding-top: 65px;
   background-color: rgba(175, 175, 175, 0.5);
 }
-
-label{
-  display: block;
-}
-
 .infopane-user-img{
   display: block;
   margin: 20px auto 20px auto;
   width: 100px;
+}
+
+.user-form-name{
+  margin: 10px;
+}
+
+.save-profile-button{
+  display: block;
+  margin: 5px auto 5px auto;
+  width: 100px;
+  border: none;
+  background-color: #9b59b6;
+  color: white;
 }

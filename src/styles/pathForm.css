@@ -1,0 +1,28 @@
+.path-name{
+  margin: 10px;
+}
+label{
+  font-size: 14px;
+  border: 1px solid lightGrey;
+  display: block;
+  margin: 10px;
+  padding: 5px;
+}
+
+input{
+  margin-top: 5px;
+  display: block;
+}
+
+select{
+  margin-left: 10px;
+}
+
+.save-city-button{
+  display: block;
+  margin: 5px auto 5px auto;
+  width: 100px;
+  border: none;
+  background-color: #2ecc71;
+  color: white;
+}

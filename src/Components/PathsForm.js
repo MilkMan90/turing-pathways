@@ -80,18 +80,18 @@ class PathsForm extends Component {
     let pathTitle;
     switch(this.props.pathNumber){
       case 0:
-        pathTitle: "Hometown"
+        pathTitle="Hometown"
         break;
       case 1:
-        pathTitle: "School or Work"
+        pathTitle="School or Work"
         break;
       default:
-        pathTitle: "School or Work"
+        pathTitle="School or Work"
         break;
     }
     return (
       <div className='single-path-form'>
-        <h3>City {this.props.pathNumber}: {pathTitle}</h3>
+        <h3 className="path-name">City {this.props.pathNumber}: {pathTitle}</h3>
         <label>
           City
           <input type="text" value={this.props.city} onChange={(e)=>this.props.updatePath(e.target.value, "city")}/>
@@ -113,7 +113,10 @@ class PathsForm extends Component {
           Description
           <input type="text" value={this.props.desc} onChange={(e)=>this.props.updatePath(e.target.value, "desc")}/>
         </label>
-        <button onClick={(e)=>this.savePath(e)}>Save City</button>
+        <button
+          onClick={(e)=>this.savePath(e)}
+          className="save-city-button"
+        >Add City</button>
       </div>
     )
   }
