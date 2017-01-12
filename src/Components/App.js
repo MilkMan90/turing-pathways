@@ -68,8 +68,9 @@ class App extends Component {
     })
   }
   setCityDisplay(cityname){
+    console.log(cityname);
     let city=this.state.cityData.cities.find((city)=>{
-      return city._id === cityname
+      return city.name === cityname
     })
     let userArray=this.state.pathData.users.filter((user)=>{
         let cityMatch = user.path.find((city)=>{
