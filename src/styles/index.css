@@ -1,11 +1,13 @@
 @import './App.css';
 @import './header.css';
 @import './infopane.css';
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  /*font-family: sans-serif;*/
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 .map {
