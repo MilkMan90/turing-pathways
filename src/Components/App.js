@@ -50,6 +50,27 @@ class App extends Component {
         user_github:auth.getProfile()
       })
   }
+  hitAPI(){
+    fetch('/users')
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        this.setState({
+          pathData: res
+        })
+      })
+    fetch('/cities')
+      .then((res)=>{
+        return res.json()
+      })
+      .then((res)=>{
+        console.log(res);
+        this.setState({
+          cityData: res
+        })
+      })
+  }
   setStudentID(){
 
   }
@@ -95,6 +116,7 @@ class App extends Component {
           userDisplay={this.state.userDisplay}
           cityDisplay={this.state.cityDisplay}
           userCityList={this.state.userList}
+          hitAPI={()=>{this.hitAPI()}}
         />
         <BaseMap
           paths={this.state.pathData}

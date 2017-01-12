@@ -26,3 +26,8 @@
   background-color: #9b59b6;
   color: white;
 }
+
+.save-profile-button:hover{
+  background-color: #8e44ad;
+  cursor: pointer;
+}

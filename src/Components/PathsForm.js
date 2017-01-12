@@ -62,6 +62,7 @@ class PathsForm extends Component {
     .then((res)=>{
       let newCityID = res;
       this.saveCityToPath(newCityID)
+      this.props.hitAPI()
     })
   }
   saveCityToPath(id){

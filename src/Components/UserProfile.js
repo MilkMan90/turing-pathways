@@ -57,6 +57,7 @@ class UserProfile extends Component {
 	      body: JSON.stringify({
           email: this.props.user.email,
           name: this.props.user.name,
+          imgsrc: this.props.user.picture,
           cohort: this.state.cohort,
           program: this.state.program,
           path: this.state.path.slice(0, this.state.path.length-1)
@@ -67,7 +68,7 @@ class UserProfile extends Component {
       // return res.json()
     })
     .then((res)=>{
-
+      this.props.hitAPI();
     })
   }
   updateExistingUser(){
@@ -88,6 +89,7 @@ class UserProfile extends Component {
     })
     .then((res)=>{
       console.log(res);
+      this.props.hitAPI();
     })
   }
   updateState(value, key){
@@ -136,6 +138,7 @@ class UserProfile extends Component {
                 lat={this.state.path[this.state.currentCityIndex].lat}
                 lon={this.state.path[this.state.currentCityIndex].lon}
 
+                hitAPI={this.props.hitAPI}
                 updatePath={(value, key)=>this.updatePath(value, key)}
                 pathNumber={this.state.currentCityIndex}
                 cityList={this.props.cityList}
