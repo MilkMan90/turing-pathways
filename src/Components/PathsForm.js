@@ -77,17 +77,28 @@ class PathsForm extends Component {
     this.props.saveCityToPath(cityObj);
   }
   render() {
+    let pathTitle;
+    switch(this.props.pathNumber){
+      case 0:
+        pathTitle: "Hometown"
+        break;
+      case 1:
+        pathTitle: "School or Work"
+        break;
+      default:
+        pathTitle: "School or Work"
+        break;
+    }
     return (
       <div className='single-path-form'>
-        <h3>{this.props.pathName}</h3>
+        <h3>City {this.props.pathNumber}: {pathTitle}</h3>
         <label>
           City
           <input type="text" value={this.props.city} onChange={(e)=>this.props.updatePath(e.target.value, "city")}/>
         </label>
         <label>
-          US State or Country
+          US State Code (ie: "NY" or "CO")
           <input type="text" value={this.props.state} onChange={(e)=>this.props.updatePath(e.target.value, "state")}/>
-          <p>{this.state.lat}, {this.state.lon}</p>
         </label>
         <label>
           Type

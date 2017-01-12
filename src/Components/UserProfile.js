@@ -139,7 +139,7 @@ class UserProfile extends Component {
                 lon={this.state.path[this.state.currentCityIndex].lon}
 
                 updatePath={(value, key)=>this.updatePath(value, key)}
-                pathName={"Home Town"}
+                pathNumber={this.state.currentCityIndex}
                 cityList={this.props.cityList}
                 saveCityToPath={(city)=>this.saveCityToPath(city)}
                 nextPath={(e)=>this.nextPath(e)}

@@ -9,8 +9,6 @@ import '../styles/index.css';
 
 import AuthService from '../utils/AuthService.js'
 
-//google geocode api https://maps.googleapis.com/maps/api/geocode/json?address=Warren&components=administrative_area:VT|country:US&key=AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o
-
 const geocoding = "AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o"
 
 const auth = new AuthService('3OrpSpUDH5zkAEcMNbHsfymMxbgnpERB', 'milkman.auth0.com');
@@ -68,11 +66,9 @@ class App extends Component {
     })
   }
   setCityDisplay(cityname){
-    console.log(cityname);
     let city=this.state.cityData.cities.find((city)=>{
       return city.city.toLowerCase() === cityname.toLowerCase()
     })
-    console.log(city);
     let userArray=this.state.pathData.users.filter((user)=>{
         let cityMatch = user.path.find((city)=>{
           return city.city.toLowerCase() === cityname.toLowerCase()
