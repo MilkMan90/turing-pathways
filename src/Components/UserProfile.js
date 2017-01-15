@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import PathsForm from './PathsForm.js'
+import {Link} from 'react-router'
 
 class UserProfile extends Component {
   constructor(props){
@@ -164,10 +165,18 @@ class UserProfile extends Component {
             </select>
           </label>
           {pathsForm}
-          <button
-            className="save-profile-button"
-            onClick={(e)=>this.submitForm(e)}
-          >Save Profile</button>
+          <Link to="/">{
+            ({transition})=> <button
+                className="save-profile-button"
+                onClick={(e)=>{
+                    this.submitForm(e)
+                    transition()
+                  }
+                }
+                // onClick={onClick}
+              >Save Profile</button>
+            }
+          </Link>
         </form>
       </div>
     )
