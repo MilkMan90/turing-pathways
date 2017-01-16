@@ -4,14 +4,6 @@ import React, { Component } from 'react';
 import { Map, Popup, TileLayer, LayersControl, Polyline, Tooltip } from 'react-leaflet';
 import L from 'leaflet'
 
-var mattPath = [
-    [42.952286, -77.590276],
-    [42.443961, -76.501881],
-    [42.098687, -75.917974],
-    [43.161030, -77.610922],
-    [39.739236, -104.990251]
-];
-
 class Path extends Component {
   constructor(props){
     super(props)

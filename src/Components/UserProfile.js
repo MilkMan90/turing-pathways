@@ -1,5 +1,4 @@
 /*eslint-disable no-unused-vars*/
-
 import React, { Component } from 'react';
 import PathsForm from './PathsForm.js'
 import {Link} from 'react-router'
@@ -11,7 +10,7 @@ class UserProfile extends Component {
       newRecord: true,
       currentCityIndex: 0,
       cohort: "",
-      program: "",
+      program: "frontend",
       path: [{id: "",
               city: "",
               state: "",
@@ -150,7 +149,7 @@ class UserProfile extends Component {
                 nextPath={(e)=>this.nextPath(e)}
               />
     return (
-      <div className="new-user-form">
+      <div className="new-user-form info-pane wide">
         {this.props.user ? <h2 className="user-form-name">{this.props.user.name}</h2> : <h2> No User </h2>}
         <form>
           <label>
@@ -173,7 +172,6 @@ class UserProfile extends Component {
                     transition()
                   }
                 }
-                // onClick={onClick}
               >Save Profile</button>
             }
           </Link>
