@@ -1,27 +1,90 @@
 @import './pathForm.css';
 
+.info-pane-container{
+
+}
+
 .info-pane{
+  width: 26%;
   position: fixed;
   z-index: 999;
   height: 100vh;
-  width: 26%;
   padding-top: 65px;
   background-color: rgba(175, 175, 175, 0.5);
+}
+
+.wide{
+  width: 38%;
+}
+
+.wide-enter {
+  width: 26%;
+}
+
+.wide-enter.wide-enter-active {
+  width: 43%;
+  transition: width 500ms ease-in;
+}
+
+.wide-leave {
+  width: 43%;
+}
+
+.wide-leave.wide-leave-active {
+  width: 26%;
+  transition: width 300ms ease-in;
+}
+
+.wide-appear {
+  width: 26%;
+}
+
+.wide-appear.wide-appear-active {
+  width: 38%;
+  transition: width 1s ease;
+}
+
+
+.infopane-user-name{
+  text-align: center;
+  margin: 5px;
+}
+.infopane-user-cohort{
+  text-align: center;
+  margin: 5px;
 }
 .infopane-user-img{
   display: block;
   margin: 20px auto 20px auto;
-  width: 100px;
+  width: 175px;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
 }
 
+.infopane-city-name{
+  border-bottom: 1px solid lightGrey;
+  text-align: center;
+  font-size: 30px;
+  margin: 5px;
+}
+
+.infopane-city-student-container{
+  margin: 3px;
+}
+
+.infopane-city-student-info{
+  margin: 3px;
+}
 .user-form-name{
   margin: 10px;
 }
 
 .save-profile-button{
   display: block;
+  font-size: 16px;
   margin: 5px auto 5px auto;
-  width: 100px;
+  width: 200px;
   border: none;
   background-color: #9b59b6;
   color: white;

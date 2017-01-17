@@ -1,7 +1,8 @@
 /*eslint-disable no-unused-vars*/
-
 import React, { Component } from 'react';
 import PathsForm from './PathsForm.js'
+import CurrentPathList from './CurrentPathList.js'
+import {Link} from 'react-router'
 
 class UserProfile extends Component {
   constructor(props){
@@ -10,7 +11,7 @@ class UserProfile extends Component {
       newRecord: true,
       currentCityIndex: 0,
       cohort: "",
-      program: "",
+      program: "frontend",
       path: [{id: "",
               city: "",
               state: "",
@@ -149,25 +150,38 @@ class UserProfile extends Component {
                 nextPath={(e)=>this.nextPath(e)}
               />
     return (
-      <div className="new-user-form">
+      <div className="new-user-form info-pane wide">
         {this.props.user ? <h2 className="user-form-name">{this.props.user.name}</h2> : <h2> No User </h2>}
         <form>
-          <label>
-            Cohort Number(eg. 1608)
-            <input type="text" value={this.state.cohort} onChange={(e)=>this.updateState(e.target.value, "cohort")}/>
-          </label>
-          <label>
-            Program
-            <select value={this.state.program} onChange={(e)=>this.updateState(e.target.value, "program")}>
-              <option value="frontend">Front End</option>
-              <option value="backend">Back End</option>
-            </select>
-          </label>
+          <div className="user-info">
+            <label>
+              Cohort (eg. 1608)
+              <input
+              className="cohort-input"
+              type="text"
+              value={this.state.cohort} onChange={(e)=>this.updateState(e.target.value, "cohort")}/>
+            </label>
+            <label>
+              Program
+              <select value={this.state.program} onChange={(e)=>this.updateState(e.target.value, "program")}>
+                <option value="frontend">Front End</option>
+                <option value="backend">Back End</option>
+              </select>
+            </label>
+          </div>
+          <CurrentPathList path={this.state.path}/>
           {pathsForm}
-          <button
-            className="save-profile-button"
-            onClick={(e)=>this.submitForm(e)}
-          >Save Profile</button>
+          <Link to="/">{
+            ({transition})=> <button
+                className="save-profile-button"
+                onClick={(e)=>{
+                    this.submitForm(e)
+                    transition()
+                  }
+                }
+              >Save Profile</button>
+            }
+          </Link>
         </form>
       </div>
     )
