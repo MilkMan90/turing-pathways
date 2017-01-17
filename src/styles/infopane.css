@@ -14,7 +14,7 @@
 }
 
 .wide{
-  width: 50%;
+  width: 38%;
 }
 
 .wide-enter {
@@ -22,12 +22,12 @@
 }
 
 .wide-enter.wide-enter-active {
-  width: 50%;
+  width: 43%;
   transition: width 500ms ease-in;
 }
 
 .wide-leave {
-  width: 50%;
+  width: 43%;
 }
 
 .wide-leave.wide-leave-active {
@@ -40,9 +40,10 @@
 }
 
 .wide-appear.wide-appear-active {
-  width: 50%;
+  width: 38%;
   transition: width 1s ease;
 }
+
 
 .infopane-user-name{
   text-align: center;
@@ -81,8 +82,9 @@
 
 .save-profile-button{
   display: block;
+  font-size: 16px;
   margin: 5px auto 5px auto;
-  width: 100px;
+  width: 200px;
   border: none;
   background-color: #9b59b6;
   color: white;
