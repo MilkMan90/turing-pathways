@@ -115,13 +115,16 @@ class PathsForm extends Component {
       <div className='single-path-form'>
         <h3 className="path-name">City {this.props.pathNumber}: {pathTitle}</h3>
         <div className="path-city-state-group">
-          <label>
+          <label className="city-label">
           City
-          <input type="text" value={this.props.city} onChange={(e)=>this.props.updatePath(e.target.value, "city")}/>
+            <input
+            className="city-input"
+            type="text" value={this.props.city} onChange={(e)=>this.props.updatePath(e.target.value, "city")}/>
           </label>
           <label>
-          State (eg. 'NY')
-          <input className="state-input" type="text" value={this.props.state} onChange={(e)=>this.props.updatePath(e.target.value, "state")}/>
+          State
+            <input className="state-input" type="text" value={this.props.state} onChange={(e)=>this.props.updatePath(e.target.value, "state")}/>
+          (eg. 'NY' or 'CO' | if not USA - leave blank)
           </label>
         </div>
         <label className="country-select">
@@ -381,7 +384,9 @@ class PathsForm extends Component {
         </label>
         <label className="type-select">
           Type
-          <select value={this.props.type} onChange={(e)=>this.props.updatePath(e.target.value, "type")}>
+          <select
+          className="type-input"
+          value={this.props.type} onChange={(e)=>this.props.updatePath(e.target.value, "type")}>
             <option value="hometown">Home-Town</option>
             <option value="school">School</option>
             <option value="work">Work</option>
@@ -389,8 +394,11 @@ class PathsForm extends Component {
           </select>
         </label>
         <label className="description">
-          Description
-          <textarea type="text" value={this.props.desc} onChange={(e)=>this.props.updatePath(e.target.value, "desc")}/>
+          Notes
+          <textarea
+          className="notes-input"
+          type="text"
+          value={this.props.desc} onChange={(e)=>this.props.updatePath(e.target.value, "desc")}/>
         </label>
         <button
           onClick={(e)=>this.savePath(e)}

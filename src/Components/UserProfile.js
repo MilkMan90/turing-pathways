@@ -29,16 +29,26 @@ class UserProfile extends Component {
         return res.json()
       })
       .then((res)=>{
-        console.log(res);
         if(res !== null){
           this.setState({
             newRecord: false,
             cohort: res.cohort,
             program: res.program,
             path: res.path
-          })
+          });
         }
+      });
+  }
+  getUserData(){
+    fetch(`/users/${this.props.user.email}`)
+      .then((res)=>{
+        return res.json()
       })
+      .then((res)=>{
+        if(res !== null){
+          return res
+        }
+      });
   }
   submitForm(e){
     e.preventDefault()
@@ -66,10 +76,12 @@ class UserProfile extends Component {
         })
     })
     .then((res)=>{
-      console.log(res);
-      // return res.json()
+      return res.json()
     })
     .then((res)=>{
+      this.setState({
+        newRecord: false
+      })
       this.props.hitAPI();
     })
   }
@@ -93,6 +105,10 @@ class UserProfile extends Component {
       console.log(res);
       this.props.hitAPI();
     })
+  }
+
+  doesUserExistInDatabase(){
+
   }
   updateState(value, key){
     this.setState({
@@ -155,11 +171,12 @@ class UserProfile extends Component {
         <form>
           <div className="user-info">
             <label>
-              Cohort (eg. 1608)
+              Cohort
               <input
               className="cohort-input"
               type="text"
               value={this.state.cohort} onChange={(e)=>this.updateState(e.target.value, "cohort")}/>
+              (eg. 1608)
             </label>
             <label>
               Program

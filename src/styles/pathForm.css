@@ -19,9 +19,11 @@
 
 .cohort-input{
   width: 60px;
+  margin-left: 17px;
 }
 
 label{
+  display: block;
   margin: 5px;
   font-size: 15px;
 }
@@ -31,11 +33,21 @@ input{
   border: none;
   font-size: 15px;
   margin-left: 5px;
+  margin-right: 5px;
   padding: 3px;
+}
+
+.city-label{
+  display: block;
+}
+
+.city-input{
+  margin-left: 32px;
 }
 
 .state-input{
   width: 40px;
+  margin-left: 23.5px;
 }
 
 select{
@@ -52,6 +64,14 @@ select{
 
 .type-select{
   display: block;
+}
+
+.type-input{
+  margin-left: 25px;
+}
+
+.notes-input{
+  margin-left: 19px;
 }
 
 .description {

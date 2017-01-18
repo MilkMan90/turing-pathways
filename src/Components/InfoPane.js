@@ -12,11 +12,18 @@ class InfoPane extends Component {
     let studentCityList;
     if(this.props.userCityList){
       console.log(this.props.userCityList);
+      console.log(this.props.cityDisplay.city);
       studentCityList = this.props.userCityList.map((user, i)=>{
+        let userCity = user.path.find((city)=>{
+          return city.city === this.props.cityDisplay.city
+        })
         return <li key={i} className="infopane-city-student-container">
-                <p className="infopane-city-student-info">{user.name}: {user.cohort} {user.program}</p>
-                <p className="infopane-city-student-info"><a href={`mailto:${user.email}`}>email</a></p>
-
+                <p className="infopane-city-student-info">
+                  {user.name}: {user.cohort} {user.program}
+                </p>
+                <p className="infopane-city-student-info">
+                  <a href={`mailto:${user.email}`}>email</a>
+                </p>
               </li>
       })
     }
