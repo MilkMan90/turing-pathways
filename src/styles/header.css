@@ -28,12 +28,28 @@ h1{
 
 .auth-button-login{
   display: inline-block;
+  border: 1px solid light grey;
+  border-radius: 4px;
   font-size: 12px;
-  margin: 20px;
-  width: 100px;
+  margin: 15px;
+  margin-right: 40px;
+  vertical-align: middle;
+  width: 140px;
+  height: 38px;
   border: none;
-  background-color: lightGrey;
+  background-color: white;
   color: black;
+}
+
+.auth-button-login:hover{
+  cursor: pointer;
+}
+
+.github-logo{
+  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+  margin-left: 3px;
 }
 
 .auth-button-logout{

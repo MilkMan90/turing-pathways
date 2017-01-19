@@ -4,6 +4,7 @@ import Header from './Header.js';
 import pathData from '../fakeData.js';
 import UserProfile from './UserProfile.js';
 import InfoPane from './InfoPane.js';
+import LogInWelcome from './LogInWelcome.js';
 import {Match} from 'react-router';
 import '../styles/index.css';
 
@@ -20,10 +21,14 @@ class App extends Component {
       user_github: {},
       studentDisplay: null,
       pathData: pathData,
-      cityData: []
+      cityData: [],
+      showLogInHelper: true
     };
     auth.on('profile_updated', (newProfile) => {
-      this.setState({user_github: newProfile})
+      this.setState({
+        showLogInHelper: false,
+        user_github: newProfile
+      })
     })
   }
   componentDidMount(){
@@ -48,6 +53,12 @@ class App extends Component {
       this.setState({
         user_github:auth.getProfile()
       })
+
+      if(auth.loggedIn()){
+        this.setState({
+          showLogInHelper: false
+        })
+      }
   }
   hitAPI(){
     fetch('/users')
@@ -78,6 +89,12 @@ class App extends Component {
       user_github: {}
     })
   }
+  closeLogInWelcomeHelper(){
+    console.log('close');
+    this.setState({
+      showLogInHelper: false
+    })
+  }
   setPathDisplay(user){
     this.setState({
       userDisplay: user,
@@ -102,12 +119,20 @@ class App extends Component {
     })
   }
   render() {
+    console.log(auth.loggedIn());
     return (
       <div className="App">
-        <Header auth={auth}
+        <Header
+          auth={auth}
           logOut={()=>this.logOut()}
           user={this.state.user_github}
         />
+        {this.state.showLogInHelper &&
+          <LogInWelcome
+            auth={auth}
+            logOut={()=>this.logOut()}
+            closeLogInWelcomeHelper={()=>this.closeLogInWelcomeHelper()}
+          />}
         <InfoPane
           auth={auth}
           cityList={this.state.cityData.cities}

@@ -10,7 +10,60 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+h4{
+  margin: 10px;
+  padding: 0;
+}
+p{
+  margin: 0;
+  padding: 0;
+}
+
 .map {
   z-index: 0;
   height: 100vh;
+}
+
+.log-in-welcome-container{
+  z-index: 999999;
+  position:fixed;
+  left: 50%;
+  top: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -moz-transform:translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+   transform: translate(-50%,-50%);
+}
+
+.log-in-welcome-message{
+  text-align: center;
+  background-color: #ecf0f1;
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 10px;
+  width: 400px;
+  margin: auto;
+  height: 180px;
+  -webkit-box-shadow: 0px 5px 13px 0px rgba(50, 50, 50, 0.62);
+  -moz-box-shadow:    0px 5px 13px 0px rgba(50, 50, 50, 0.62);
+  box-shadow:         0px 5px 13px 0px rgba(50, 50, 50, 0.62);
+}
+
+.close-log-in-helper-button{
+  background-color: #34495e;
+  color: white;
+  font-size: 14px;
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+}
+
+.close-log-in-helper-button:hover{
+  cursor: pointer;
+  background-color: #2c3e50;
+}
+
+.login-button-helper{
+  margin: 20px;
 }
