@@ -13,7 +13,6 @@ const MongoClient = require('mongodb').MongoClient
 //
 // }
 
-
 if(app.settings.env === "development"){
   var dbName = 'studentDB';
   var connectionString = 'mongodb://localhost:27017/' + dbName;
