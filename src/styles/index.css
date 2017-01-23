@@ -1,6 +1,7 @@
 @import './App.css';
 @import './header.css';
 @import './infopane.css';
+@import './filterControls.css';
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 body {

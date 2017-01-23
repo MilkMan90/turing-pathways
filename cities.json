@@ -1,0 +1,89 @@
+{"_id":{"$oid":"5876c4ef48f2890019b2cebc"},"city":"honeoye falls","state":"ny","lat":"42.9522855","lon":"-77.5902759","__v":0}
+{"_id":{"$oid":"5876c4f648f2890019b2cebd"},"city":"rochester","state":"ny","lat":"43.16103","lon":"-77.6109219","__v":0}
+{"_id":{"$oid":"5876c4fb48f2890019b2cebe"},"city":"denver","state":"co","lat":"39.7392358","lon":"-104.990251","__v":0}
+{"_id":{"$oid":"5876c50848f2890019b2cebf"},"city":"rochester","state":"ny","lat":"43.16103","lon":"-77.6109219","__v":0}
+{"_id":{"$oid":"5876c50d48f2890019b2cec0"},"city":"denver","state":"co","lat":"39.7392358","lon":"-104.990251","__v":0}
+{"_id":{"$oid":"5876c56948f2890019b2cec2"},"city":"Boxford","state":"MA","lat":"42.6611604","lon":"-70.996726","__v":0}
+{"_id":{"$oid":"5876c57348f2890019b2cec3"},"city":"Durango","state":"CO","lat":"37.27528","lon":"-107.8800667","__v":0}
+{"_id":{"$oid":"5876c68648f2890019b2cec5"},"city":"Wichita","state":"KS","lat":"37.68717609999999","lon":"-97.33005299999999","__v":0}
+{"_id":{"$oid":"5876c69d48f2890019b2cec6"},"city":"Abilene","state":"TX","lat":"32.4487364","lon":"-99.73314390000002","__v":0}
+{"_id":{"$oid":"5876c6ae48f2890019b2cec7"},"city":"Columbia","state":"MO","lat":"38.9517053","lon":"-92.3340724","__v":0}
+{"_id":{"$oid":"5876c6c248f2890019b2cec8"},"city":"Saint Louis","state":"MO","lat":"38.6105426","lon":"-90.3371889","__v":0}
+{"_id":{"$oid":"5876c6cd48f2890019b2cec9"},"city":"Lubbock","state":"TX","lat":"33.5778631","lon":"-101.8551665","__v":0}
+{"_id":{"$oid":"5876eca98a44170019e50b72"},"city":"victor","state":"ny","lat":"42.9825633","lon":"-77.4088794","__v":0}
+{"_id":{"$oid":"5876ecf38a44170019e50b73"},"city":"binghamton","state":"ny","lat":"42.09868669999999","lon":"-75.91797380000001","__v":0}
+{"_id":{"$oid":"5877b1cb1d3021001908b865"},"city":"Sidney","state":"MT","lat":"47.7166836","lon":"-104.1563253","__v":0}
+{"_id":{"$oid":"5877b1d71d3021001908b866"},"city":"Bozeman","state":"MT","lat":"45.6769979","lon":"-111.0429339","__v":0}
+{"_id":{"$oid":"5877b1dd1d3021001908b867"},"city":"Rio Rancho","state":"NM","lat":"35.2327544","lon":"-106.6630437","__v":0}
+{"_id":{"$oid":"5877b1e21d3021001908b868"},"city":"Beaverton","state":"OR","lat":"45.48706199999999","lon":"-122.8037102","__v":0}
+{"_id":{"$oid":"5877b1e81d3021001908b869"},"city":"Monument","state":"CO","lat":"39.0916586","lon":"-104.872758","__v":0}
+{"_id":{"$oid":"5877b1f01d3021001908b86a"},"city":"Boulder","state":"CO","lat":"40.0149856","lon":"-105.2705456","__v":0}
+{"_id":{"$oid":"5877b1f61d3021001908b86b"},"city":"Boise","state":"ID","lat":"43.6187102","lon":"-116.2146068","__v":0}
+{"_id":{"$oid":"5877b2f51d3021001908b86e"},"city":"Raleigh","state":"NC","lat":"35.7795897","lon":"-78.6381787","__v":0}
+{"_id":{"$oid":"5877b3031d3021001908b86f"},"city":"Chicago","state":"IL","lat":"41.8781136","lon":"-87.6297982","__v":0}
+{"_id":{"$oid":"5877b3671d3021001908b871"},"city":"Wheaton","state":"IL","lat":"41.8661403","lon":"-88.1070127","__v":0}
+{"_id":{"$oid":"5877b3a71d3021001908b872"},"city":"Washington","state":"DC","lat":"38.9071923","lon":"-77.0368707","__v":0}
+{"_id":{"$oid":"5877b8a81d3021001908b873"},"city":"Bryan","state":"TX","lat":"30.6743643","lon":"-96.3699632","__v":0}
+{"_id":{"$oid":"5877b8b31d3021001908b874"},"city":"Blacksburg","state":"VA","lat":"37.2295733","lon":"-80.4139393","__v":0}
+{"_id":{"$oid":"5877b8bc1d3021001908b875"},"city":"Ann Arbor","state":"MI","lat":"42.2808256","lon":"-83.7430378","__v":0}
+{"_id":{"$oid":"5877b8d91d3021001908b876"},"city":"Commerce","state":"TX","lat":"33.2470567","lon":"-95.8999656","__v":0}
+{"_id":{"$oid":"5877b8df1d3021001908b877"},"city":"Boca Raton","state":"FL","lat":"26.3683064","lon":"-80.1289321","__v":0}
+{"_id":{"$oid":"5877b95d1d3021001908b879"},"city":"Atlanta","state":"GA","lat":"33.7489954","lon":"-84.3879824","__v":0}
+{"_id":{"$oid":"5877b96a1d3021001908b87a"},"city":"Northampton","state":"MA","lat":"42.3250896","lon":"-72.64120129999999","__v":0}
+{"_id":{"$oid":"5877b9731d3021001908b87b"},"city":"Charlottesville","state":"VA","lat":"38.0293059","lon":"-78.47667810000002","__v":0}
+{"_id":{"$oid":"5877b97a1d3021001908b87c"},"city":"Asheville","state":"NC","lat":"35.5950581","lon":"-82.5514869","__v":0}
+{"_id":{"$oid":"5877ba821d3021001908b87e"},"city":"Lincoln","state":"VA","lat":"39.1153835","lon":"-77.6949928","__v":0}
+{"_id":{"$oid":"5877bbb61d3021001908b87f"},"city":"Inlet","state":"NY","lat":"43.7545099","lon":"-74.79294879999999","__v":0}
+{"_id":{"$oid":"5877c0f01d3021001908b880"},"city":"Louisville","state":"ky","lat":"38.2526647","lon":"-85.7584557","__v":0}
+{"_id":{"$oid":"5877c5371d3021001908b883"},"city":"Ashby","state":"NE","lat":"42.0232992","lon":"-101.9293466","__v":0}
+{"_id":{"$oid":"5877c5451d3021001908b884"},"city":"Crete","state":"NE","lat":"40.6252173","lon":"-96.9615141","__v":0}
+{"_id":{"$oid":"5877c5541d3021001908b885"},"city":"Omaha","state":"NE","lat":"41.2523634","lon":"-95.99798829999999","__v":0}
+{"_id":{"$oid":"5877c55f1d3021001908b886"},"city":"Denver","state":"CO ","lat":"39.7392358","lon":"-104.990251","__v":0}
+{"_id":{"$oid":"5877cdccb0d88d001906580b"},"city":"Bryan","state":"","lat":"39.9129412","lon":"-104.7956055","__v":0}
+{"_id":{"$oid":"5877cdd0b0d88d001906580c"},"city":"Blacksburg","state":"","lat":"39.9129412","lon":"-104.7956055","__v":0}
+{"_id":{"$oid":"5877cdd2b0d88d001906580d"},"city":"Ann Arbor","state":"","lat":"39.9129412","lon":"-104.7956055","__v":0}
+{"_id":{"$oid":"5877ce03b0d88d001906580e"},"city":"Paris","state":"","country":"FR","lat":"48.856614","lon":"2.3522219","__v":0}
+{"_id":{"$oid":"5877ce0ab0d88d001906580f"},"city":"Boca Raton","state":"","lat":"39.9129412","lon":"-104.7956055","__v":0}
+{"_id":{"$oid":"5877ce20b0d88d0019065810"},"city":"Commerce","state":"","lat":"39.9129412","lon":"-104.7956055","__v":0}
+{"_id":{"$oid":"5877ce21b0d88d0019065811"},"city":"Denver","state":"","lat":"39.9129412","lon":"-104.7956055","__v":0}
+{"_id":{"$oid":"5877ce21b0d88d0019065812"},"city":"","state":"","country":"US","lat":"37.09024","lon":"-95.712891","__v":0}
+{"_id":{"$oid":"5877e5c70028370019139713"},"city":"Denver","state":"80211","country":"US","lat":"39.7698122","lon":"-105.0148322","__v":0}
+{"_id":{"$oid":"5877e5e10028370019139714"},"city":"Brighton","state":"CO","country":"US","lat":"39.9852617","lon":"-104.8205283","__v":0}
+{"_id":{"$oid":"5877e8f80028370019139717"},"city":"Bayonne","state":"NJ","country":"US","lat":"40.6687141","lon":"-74.1143091","__v":0}
+{"_id":{"$oid":"5877e9120028370019139719"},"city":"Fort Collins","state":"CO","country":"US","lat":"40.5852602","lon":"-105.084423","__v":0}
+{"_id":{"$oid":"5877ea0c002837001913971b"},"city":"Saugerties","state":"NY","country":"US","lat":"42.0775906","lon":"-73.95291259999999","__v":0}
+{"_id":{"$oid":"5877ea99002837001913971c"},"city":"white bear lake","state":"Minnesota","country":"US","lat":"45.0853814","lon":"-93.0081479","__v":0}
+{"_id":{"$oid":"5877eb310028370019139720"},"city":"Minneapolis","state":"MN","country":"US","lat":"44.977753","lon":"-93.2650108","__v":0}
+{"_id":{"$oid":"5877eb600028370019139722"},"city":"Cincinnati","state":"OH","country":"US","lat":"39.1031182","lon":"-84.5120196","__v":0}
+{"_id":{"$oid":"5877eeb40028370019139723"},"city":"Boston","state":"MA","country":"US","lat":"42.3600825","lon":"-71.0588801","__v":0}
+{"_id":{"$oid":"5877eecf0028370019139724"},"city":"San Francisco","state":"CA","country":"US","lat":"37.7749295","lon":"-122.4194155","__v":0}
+{"_id":{"$oid":"5877eedc0028370019139725"},"city":"Miami","state":"FL","country":"US","lat":"25.7616798","lon":"-80.1917902","__v":0}
+{"_id":{"$oid":"5877f1a2dac0df00194b6e17"},"city":"Evansville","state":"Indiana","country":"US","lat":"37.9715592","lon":"-87.5710898","__v":0}
+{"_id":{"$oid":"58780106dac0df00194b6e18"},"city":"Minneapolis","state":"Minnesota","country":"US","lat":"44.977753","lon":"-93.2650108","__v":0}
+{"_id":{"$oid":"58780120dac0df00194b6e19"},"city":"Madison ","state":"WI","country":"US","lat":"43.0730517","lon":"-89.4012302","__v":0}
+{"_id":{"$oid":"5878036bdac0df00194b6e21"},"city":"Portland","state":"ME","country":"US","lat":"43.66147100000001","lon":"-70.2553259","__v":0}
+{"_id":{"$oid":"5878037ddac0df00194b6e22"},"city":"Burlington","state":"VT","country":"US","lat":"44.4758825","lon":"-73.21207199999999","__v":0}
+{"_id":{"$oid":"5878038adac0df00194b6e23"},"city":"Burke","state":"VA","country":"US","lat":"38.7934466","lon":"-77.27165049999999","__v":0}
+{"_id":{"$oid":"58780398dac0df00194b6e24"},"city":"Fredericksburg","state":"VA","country":"US","lat":"38.3031837","lon":"-77.4605399","__v":0}
+{"_id":{"$oid":"587803b3dac0df00194b6e25"},"city":"College Park","state":"MD","country":"US","lat":"38.9896967","lon":"-76.93776","__v":0}
+{"_id":{"$oid":"587803efdac0df00194b6e27"},"city":"Brisbane","state":"","country":"AU","lat":"-27.4697707","lon":"153.0251235","__v":0}
+{"_id":{"$oid":"5878044edac0df00194b6e2a"},"city":"Fort Worth","state":"TX","country":"US","lat":"32.7554883","lon":"-97.3307658","__v":0}
+{"_id":{"$oid":"587812730985eb0019e9da25"},"city":"Denver","state":"Colorado","country":"US","lat":"39.7392358","lon":"-104.990251","__v":0}
+{"_id":{"$oid":"587821d30985eb0019e9da28"},"city":"honeoye falls","state":"","lat":"39.9129412","lon":"-104.7956055","__v":0}
+{"_id":{"$oid":"587822160985eb0019e9da29"},"city":"New York City","state":"NY","country":"US","lat":"40.7127837","lon":"-74.0059413","__v":0}
+{"_id":{"$oid":"5878229b0985eb0019e9da2c"},"city":"London","state":"","country":"GB","lat":"51.5073509","lon":"-0.1277583","__v":0}
+{"_id":{"$oid":"587822ad0985eb0019e9da2d"},"city":"Hartford","state":"CT","country":"US","lat":"41.76371109999999","lon":"-72.6850932","__v":0}
+{"_id":{"$oid":"587825b00985eb0019e9da2e"},"city":"Tucson","state":"85745","country":"US","lat":"32.26256560000001","lon":"-111.1175767","__v":0}
+{"_id":{"$oid":"587826570985eb0019e9da30"},"city":"Santos","state":"","country":"BR","lat":"-23.9678823","lon":"-46.3288865","__v":0}
+{"_id":{"$oid":"587826990985eb0019e9da32"},"city":"Denver","state":"80202","country":"US","lat":"39.7541032","lon":"-105.0002242","__v":0}
+{"_id":{"$oid":"58783b160985eb0019e9da34"},"city":"Beloit","state":"WI","country":"US","lat":"42.5083482","lon":"-89.03177649999999","__v":0}
+{"_id":{"$oid":"587853660985eb0019e9da3b"},"city":"Toronto","state":"","country":"CA","lat":"43.653226","lon":"-79.3831843","__v":0}
+{"_id":{"$oid":"5878537d0985eb0019e9da3c"},"city":"Denver","state":"80218","country":"US","lat":"39.73274600000001","lon":"-104.9710123","__v":0}
+{"_id":{"$oid":"5878539d0985eb0019e9da3d"},"city":"Park City","state":"UT","country":"US","lat":"40.6460622","lon":"-111.4979729","__v":0}
+{"_id":{"$oid":"5878d72339cbf90019cfc7f0"},"city":"Columbus","state":"OH","country":"US","lat":"39.9611755","lon":"-82.99879419999999","__v":0}
+{"_id":{"$oid":"5878d82239cbf90019cfc7f1"},"city":"Evergreen","state":"Colorado","country":"US","lat":"39.6333213","lon":"-105.3172146","__v":0}
+{"_id":{"$oid":"5878e621e363cb00197215ee"},"city":"Vancouver","state":"","country":"US","lat":"45.6318397","lon":"-122.6716063","__v":0}
+{"_id":{"$oid":"58792f1fd125f00019d33139"},"city":"Portland","state":"OR","country":"US","lat":"45.5230622","lon":"-122.6764816","__v":0}
+{"_id":{"$oid":"587947b9e1099300191b3c09"},"city":"Madison","state":"WI","country":"US","lat":"43.0730517","lon":"-89.4012302","__v":0}
+{"_id":{"$oid":"58794809e1099300191b3c0a"},"city":"Vilnius","state":"","country":"LT","lat":"54.6871555","lon":"25.2796514","__v":0}
+{"_id":{"$oid":"5884f67acf707500196bc499"},"city":"Mishawaka","state":"In","country":"US","lat":"41.6619927","lon":"-86.15861559999999","__v":0}

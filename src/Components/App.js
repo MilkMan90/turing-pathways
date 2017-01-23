@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BaseMap from './BaseMap.js';
 import Header from './Header.js';
+import FiltersWindow from './FiltersWindow';
 import pathData from '../fakeData.js';
 import UserProfile from './UserProfile.js';
 import InfoPane from './InfoPane.js';
@@ -22,7 +23,9 @@ class App extends Component {
       studentDisplay: null,
       pathData: pathData,
       cityData: [],
-      showLogInHelper: true
+      showLogInHelper: true,
+      cohortFilter: 'all',
+      programFilter: 'all',
     };
     auth.on('profile_updated', (newProfile) => {
       this.setState({
@@ -90,7 +93,6 @@ class App extends Component {
     })
   }
   closeLogInWelcomeHelper(){
-    console.log('close');
     this.setState({
       showLogInHelper: false
     })
@@ -118,8 +120,17 @@ class App extends Component {
       userList: userArray
     })
   }
+  updateCohortFilter(e){
+    this.setState({
+      cohortFilter: e.target.value
+    })
+  }
+  updateProgramFilter(e){
+    this.setState({
+      programFilter: e.target.value
+    })
+  }
   render() {
-    console.log(auth.loggedIn());
     return (
       <div className="App">
         <Header
@@ -142,11 +153,20 @@ class App extends Component {
           userCityList={this.state.userList}
           hitAPI={()=>{this.hitAPI()}}
         />
+        <FiltersWindow
+          users={this.state.pathData}
+          handleCohortFilter={(e)=>this.updateCohortFilter(e)}
+          handleProgramFilter={(e)=>this.updateProgramFilter(e)}
+          programFilter={this.state.programFilter}
+          cohortFilter={this.state.cohortFilter}
+        />
         <BaseMap
           paths={this.state.pathData}
           cities={this.state.cityData}
           handlePathHover={(user)=>this.setPathDisplay(user)}
           handleCityHover={(cityID)=>this.setCityDisplay(cityID)}
+          cohortFilter={this.state.cohortFilter}
+          programFilter={this.state.programFilter}
         />
 
         {/* <Match pattern="/profile" component={UserProfile} /> */}

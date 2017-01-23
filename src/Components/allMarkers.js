@@ -6,11 +6,55 @@ import L from 'leaflet'
 import filter from 'lodash'
 
 class AllMarkers extends Component {
-
+  filterMarkersByCohort(markerArray){
+    let students = this.props.paths.filter((user)=>{
+        return user.cohort === this.props.cohortFilter
+    })
+    let filteredCities = markerArray.filter((city)=>{
+      let result = false;
+      students.forEach((student)=>{
+        student.path.forEach((pathCity)=>{
+          if(pathCity.city === city.city) result = true
+        })
+      })
+      return result
+    })
+    return filteredCities
+  }
+  filterMarkersByProgram(markerArray){
+    let students = this.props.paths.filter((user)=>{
+        return user.program === this.props.programFilter
+    })
+    let filteredCities = markerArray.filter((city)=>{
+      let result = false;
+      students.forEach((student)=>{
+        student.path.forEach((pathCity)=>{
+          if(pathCity.city === city.city) result = true
+        })
+      })
+      return result
+    })
+    return filteredCities
+  }
   render() {
-    let markerArray;
-    if(this.props.markers.hasOwnProperty('cities')){
-      markerArray = this.props.markers.cities.map((marker, i)=>{
+    let studentPaths = this.props.paths;
+
+
+    let markerArray = this.props.markers;
+    if(markerArray.hasOwnProperty('cities')){
+
+      markerArray = this.props.markers.cities
+
+      if(this.props.cohortFilter !== 'all'){
+        markerArray = this.filterMarkersByCohort(markerArray)
+      }
+
+      if(this.props.programFilter !== 'all'){
+        markerArray = this.filterMarkersByProgram(markerArray)
+      }
+      console.log(markerArray);
+
+      markerArray = markerArray.map((marker, i)=>{
         return (
           <Mark
             key={i}
