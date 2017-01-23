@@ -1,0 +1,14 @@
+h5{
+  margin: 0px;
+  padding: 0px;
+}
+
+.filter-controls-container{
+  width: 100px;
+  position: fixed;
+  z-index: 999;
+  height: 120px;
+  right: 20px;
+  top: 75px;
+  background-color: rgba(175, 175, 175, 0.5);
+}

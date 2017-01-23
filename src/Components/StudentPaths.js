@@ -8,10 +8,21 @@ import filter from 'lodash'
 class StudentPaths extends Component {
 
   render() {
-    let studentPaths;
 
-    if(this.props.paths){
-      studentPaths = this.props.paths.map((user, i)=>{
+    let studentPaths = this.props.paths;
+
+    if(studentPaths){
+      if(this.props.cohortFilter !== 'all'){
+        studentPaths = studentPaths.filter((user)=>{
+            return user.cohort === this.props.cohortFilter
+        })
+      }
+      if(this.props.programFilter !== 'all'){
+        studentPaths = studentPaths.filter((user)=>{
+            return user.program === this.props.programFilter
+        })
+      }
+      studentPaths = studentPaths.map((user, i)=>{
         return <StudentPath
                   key={i}
                   data={user}

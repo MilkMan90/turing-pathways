@@ -33,23 +33,19 @@ class BaseMap extends Component {
           <StudentPaths
             paths={this.props.paths.users}
             handleHover={this.props.handlePathHover}
+            cohortFilter={this.props.cohortFilter}
+            programFilter={this.props.programFilter}
           />
           <AllMarkers
             markers={this.props.cities}
             handleHover={this.props.handleCityHover}
+            cohortFilter={this.props.cohortFilter}
+            programFilter={this.props.programFilter}
+            paths={this.props.paths.users}
             />
           <ZoomControl
             position='bottomright'
           />
-          {/* <LayersControl>
-            <LayersControl.Overlay name='Marker with popup'>
-             <Marker position={[51.51, -0.06]}>
-               <Tooltip>
-                 <span>A pretty CSS3 popup. <br/> Easily customizable.</span>
-               </Tooltip>
-             </Marker>
-           </LayersControl.Overlay>
-         </LayersControl> */}
         </Map>
       </div>
     );
