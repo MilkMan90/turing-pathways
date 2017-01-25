@@ -16,7 +16,7 @@ class UserProfile extends Component {
               city: "",
               state: "",
               country: "US",
-              type: "",
+              type: "hometown",
               desc: "",
               lat: '',
               lon: ''
@@ -102,11 +102,9 @@ class UserProfile extends Component {
       return res.json()
     })
     .then((res)=>{
-      console.log(res);
       this.props.hitAPI();
     })
   }
-
   doesUserExistInDatabase(){
 
   }
@@ -125,6 +123,7 @@ class UserProfile extends Component {
   saveCityToPath(city){
     let tempPath = this.state.path;
     tempPath[this.state.currentCityIndex] = city;
+    console.log(tempPath);
     this.setState({
       path: tempPath
     })

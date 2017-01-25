@@ -11,8 +11,6 @@ class InfoPane extends Component {
     let cityDisplay;
     let studentCityList;
     if(this.props.userCityList){
-      console.log(this.props.userCityList);
-      console.log(this.props.cityDisplay.city);
       studentCityList = this.props.userCityList.map((user, i)=>{
         let userCity = user.path.find((city)=>{
           return city.city === this.props.cityDisplay.city

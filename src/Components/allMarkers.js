@@ -52,7 +52,6 @@ class AllMarkers extends Component {
       if(this.props.programFilter !== 'all'){
         markerArray = this.filterMarkersByProgram(markerArray)
       }
-      console.log(markerArray);
 
       markerArray = markerArray.map((marker, i)=>{
         return (

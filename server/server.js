@@ -101,7 +101,6 @@ app.put('/users/:email', function(req,res){
 
 app.post('/cities', function(req, res) {
   var city = new City(req.body);
-  console.log(city);
   city.save(function(err) {
     if (err) {
       res.send(err)

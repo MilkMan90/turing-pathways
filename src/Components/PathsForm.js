@@ -17,7 +17,7 @@ class PathsForm extends Component {
   getPathCoords(){
     var {city, state, country} = this.props
     let url;
-    if(country === 'US'){
+    if(country === 'US' || country == undefined){
       url = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&components=administrative_area:${state}|country:${country}&key=AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o`
     } else {
       this.props.updatePath('', "state")
@@ -44,7 +44,6 @@ class PathsForm extends Component {
   findCity(city, state){
     if(this.props.cityList.length === 0) return undefined
     return this.props.cityList.find((onecity)=>{
-      console.log(onecity);
       return onecity.city.toLowerCase() === city.toLowerCase() && onecity.state.toLowerCase() === state.toLowerCase()
     })
   }
@@ -77,6 +76,7 @@ class PathsForm extends Component {
     })
   }
   saveCityToPath(id){
+    console.log(this.props);
     let cityObj = {
       id: id,
       city: this.props.city,
