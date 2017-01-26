@@ -5,52 +5,56 @@ import L from 'leaflet'
 import home from '../imgs/home.svg'
 import work from '../imgs/work.svg'
 import school from '../imgs/school.svg'
+import tealdot from '../imgs/tealdot.svg'
 
 class Mark extends Component {
   focusHover(){
     this.props.handleHover(this.props.info.city);
   }
   render() {
-    let icon;
-    switch(this.props.info.type){
-      case 'work':
-        icon = L.icon({
-          iconUrl: work,
-          iconSize: [20, 20],
-          popupAnchor: [-3, -76],
-        });
-        break;
-      case 'education':
-        icon = L.icon({
-          iconUrl: school,
-          iconSize: [20, 20],
-          popupAnchor: [-3, -76],
-        });
-        break;
-      case 'hometown':
-        icon = L.icon({
-          iconUrl: home,
-          iconSize: [20, 20],
-          popupAnchor: [-3, -76],
-        });
-        break;
-      default:
-        icon = L.icon({
-          iconUrl: work,
-          iconSize: [20, 20],
-          iconAnchor: [22, 94],
-          popupAnchor: [-3, -76],
-          shadowSize: [68, 95],
-          shadowAnchor: [22, 94]
-        });
-        break;
-    }
+    let icon = L.icon({
+      iconUrl: tealdot,
+      iconSize: [15, 15]
+    });
+    // switch(this.props.info.type){
+    //   case 'work':
+    //     icon = L.icon({
+    //       iconUrl: work,
+    //       iconSize: [20, 20],
+    //       popupAnchor: [-3, -76],
+    //     });
+    //     break;
+    //   case 'education':
+    //     icon = L.icon({
+    //       iconUrl: school,
+    //       iconSize: [20, 20],
+    //       popupAnchor: [-3, -76],
+    //     });
+    //     break;
+    //   case 'hometown':
+    //     icon = L.icon({
+    //       iconUrl: home,
+    //       iconSize: [20, 20],
+    //       popupAnchor: [-3, -76],
+    //     });
+    //     break;
+    //   default:
+    //     icon = L.icon({
+    //       iconUrl: work,
+    //       iconSize: [20, 20],
+    //       iconAnchor: [22, 94],
+    //       popupAnchor: [-3, -76],
+    //       shadowSize: [68, 95],
+    //       shadowAnchor: [22, 94]
+    //     });
+    //     break;
+
     return (
       <div className="marker-container">
         <Marker
           position={this.props.location}
           onMouseOver={()=>{this.focusHover()}}
-          // icon={icon}
+          icon={icon}
         >
           <Tooltip
             sticky={true}

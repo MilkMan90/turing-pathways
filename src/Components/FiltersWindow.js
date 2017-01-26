@@ -37,7 +37,7 @@ class FiltersWindow extends Component {
     return (
       <div className="filter-controls-container">
         <form>
-          <h5>Filter By: </h5>
+          <h5 className="filter-title">Filter By: </h5>
           <label>
             Cohort
             <select value={this.props.cohortFilter} onChange={(e)=>{this.props.handleCohortFilter(e)}}>

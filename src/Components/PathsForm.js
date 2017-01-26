@@ -400,6 +400,14 @@ class PathsForm extends Component {
           type="text"
           value={this.props.desc} onChange={(e)=>this.props.updatePath(e.target.value, "desc")}/>
         </label>
+        <label className="lives-here">
+          I live here now
+          <input
+            type="checkbox"
+            checked={this.props.livesHere}
+            onChange={(e)=>this.props.updatePath(e.target.checked, "livesHere")}
+          />
+        </label>
         <button
           onClick={(e)=>this.savePath(e)}
           className={saveEnabled}

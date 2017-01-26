@@ -18,6 +18,7 @@ class UserProfile extends Component {
               country: "US",
               type: "hometown",
               desc: "",
+              livesHere: false,
               lat: '',
               lon: ''
             }]
@@ -116,6 +117,7 @@ class UserProfile extends Component {
   updatePath(value, key){
     let tempPath = this.state.path;
     tempPath[this.state.currentCityIndex][key] = value;
+    console.log(tempPath[this.state.currentCityIndex][key]);
     this.setState({
       path: tempPath
     })
@@ -123,7 +125,6 @@ class UserProfile extends Component {
   saveCityToPath(city){
     let tempPath = this.state.path;
     tempPath[this.state.currentCityIndex] = city;
-    console.log(tempPath);
     this.setState({
       path: tempPath
     })
@@ -154,6 +155,7 @@ class UserProfile extends Component {
                 country={this.state.path[this.state.currentCityIndex].country}
                 type={this.state.path[this.state.currentCityIndex].type}
                 desc={this.state.path[this.state.currentCityIndex].desc}
+                livesHere={this.state.path[this.state.currentCityIndex].livesHere}
                 lat={this.state.path[this.state.currentCityIndex].lat}
                 lon={this.state.path[this.state.currentCityIndex].lon}
 
