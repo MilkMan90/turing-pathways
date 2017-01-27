@@ -9,7 +9,7 @@ class Path extends Component {
     super(props)
     this.state =  {
       pathColor: "orange",
-      pathOpacity: 0.35
+      pathOpacity: 0.65
     };
   }
   focusHover(){
@@ -34,7 +34,7 @@ class Path extends Component {
           positions={this.props.path}
           smoothFactor={1}
           interactive={true}
-          weight={2}
+          weight={3}
           onMouseOver={()=>{this.focusHover()}}
           onMouseOut={()=>{this.mouseLeave()}}
         >

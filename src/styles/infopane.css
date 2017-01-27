@@ -8,7 +8,7 @@
   width: 26%;
   position: fixed;
   z-index: 999;
-  height: 100vh;
+  height: 100%;
   padding-top: 65px;
   background-color: rgba(175, 175, 175, 0.5);
 }

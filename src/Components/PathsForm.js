@@ -17,10 +17,9 @@ class PathsForm extends Component {
   getPathCoords(){
     var {city, state, country} = this.props
     let url;
-    if(country === 'US' || country == undefined){
+    if(country === 'US'){
       url = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&components=administrative_area:${state}|country:${country}&key=AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o`
     } else {
-      this.props.updatePath('', "state")
       url = `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&components=country:${country}&key=AIzaSyBflDyoDsV7jJjXo_bNuvdcbOqbRqnS73o`
     }
 

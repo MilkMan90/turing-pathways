@@ -117,7 +117,6 @@ class UserProfile extends Component {
   updatePath(value, key){
     let tempPath = this.state.path;
     tempPath[this.state.currentCityIndex][key] = value;
-    console.log(tempPath[this.state.currentCityIndex][key]);
     this.setState({
       path: tempPath
     })
