@@ -75,7 +75,7 @@ app.post('/users', function(req, res) {
       res.send(err)
     }
     User.find(function(err, users) {
-      res.send('success!')
+      res.send(users)
     })
   })
 })
