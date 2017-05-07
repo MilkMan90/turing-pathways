@@ -1,7 +1,7 @@
 /*eslint-disable no-unused-vars*/
 import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import {Match} from 'react-router';
+import {Route} from 'react-router-dom';
 import UserProfile from './UserProfile.js';
 import CityDisplay from './CityDisplay.js';
 import UserDisplay from './UserDisplay.js';
@@ -27,7 +27,7 @@ class InfoPane extends Component {
     }
     return (
       <div className="info-pane-container">
-        <Match pattern="/editprofile" render={()=> (
+        <Route path="/editprofile" render={()=> (
           <ReactCSSTransitionGroup
             transitionName="wide"
             transitionAppear={true}
@@ -42,7 +42,7 @@ class InfoPane extends Component {
           </ReactCSSTransitionGroup>
           )
         }/>
-         <Match pattern="/" exactly render={()=> (
+         <Route path="/" exact render={()=> (
            <div>
            {this.props.userDisplay
              &&
