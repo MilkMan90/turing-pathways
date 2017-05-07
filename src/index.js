@@ -5,24 +5,23 @@ import {render} from 'react-dom';
 import App from './Components/App';
 import './styles/index.css';
 
-import {BrowserRouter, Match, Miss} from 'react-router'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-const Root = ()=>{
-  return (
-    <BrowserRouter>
-      <div>
-        <main>
-          <Match pattern="/" component={App} />
-          <Miss component={App}/>
-        </main>
-      </div>
-    </BrowserRouter>
-  )
+const Root = ()=> {
+    return (
+      <Router>
+        <div>
+          <main>
+            <Route path="/" component={App} />
+            {/* <Miss component={App}/> */}
+          </main>
+        </div>
+      </Router>
+    )
 }
 
-render(
-  <Root />,
-  document.getElementById('root')
-);
+
+
+render( <Root />, document.getElementById('root') );
 
 export default Root;

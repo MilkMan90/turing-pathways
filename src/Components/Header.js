@@ -1,7 +1,7 @@
 /*eslint-disable no-unused-vars*/
 
 import React, { Component } from 'react';
-import {Link, Match} from 'react-router'
+import {Link, Route} from 'react-router-dom'
 import LoginButton from './LoginButton.js'
 import AuthService from '../utils/AuthService.js'
 

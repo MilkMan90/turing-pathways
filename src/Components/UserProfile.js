@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PathsForm from './PathsForm.js'
 import CurrentPathList from './CurrentPathList.js'
-import {Link} from 'react-router'
+import {Link} from 'react-router-dom'
 
 class UserProfile extends Component {
   constructor(props){
@@ -188,21 +188,24 @@ class UserProfile extends Component {
           </div>
           <CurrentPathList path={this.state.path}/>
           {pathsForm}
-          <Link to="/">{
-            ({transition})=> <button
-                className="save-profile-button"
-                onClick={(e)=>{
-                    this.submitForm(e)
-                    transition()
-                  }
-                }
-              >Save Profile</button>
-            }
+          <Link to="/">
+           {
+             ({transition}) => <button
+                 className="save-profile-button"
+                 onClick={(e)=>{
+                     this.submitForm(e)
+                     transition()
+                   }
+                 }
+               >Save Profile</button>
+             }
           </Link>
         </form>
       </div>
     )
   }
 }
+
+
 
 export default UserProfile;
