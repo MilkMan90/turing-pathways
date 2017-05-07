@@ -4,7 +4,7 @@ h5{
 }
 
 .filter-controls-container{
-  width: 90px;
+  width: 100px;
   position: fixed;
   z-index: 999;
   height: 120px;
@@ -16,4 +16,8 @@ h5{
 
 .filter-title{
   margin: 5px;
+}
+
+select {
+  display: block;
 }
