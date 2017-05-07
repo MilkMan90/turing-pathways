@@ -5,8 +5,9 @@
 }
 
 .info-pane{
-  width: 26%;
+  width: 28%;
   position: fixed;
+  overflow-y: auto;
   z-index: 999;
   height: 100%;
   padding-top: 65px;
